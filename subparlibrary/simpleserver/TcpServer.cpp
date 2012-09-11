@@ -84,7 +84,7 @@ void TcpServer::AcceptNewConnection()
     {
         //LOG
         //the program should go on running when this error ocurr
-        FILE_LOG(logERROR)<<__FILE__<<" "<<__LINE__<<" error: "<<strerror(errno);
+        FILE_LOG(logERROR)<<" error: "<<strerror(errno);
     }
     ++conn_id_;
     //the connection's name
@@ -94,7 +94,6 @@ void TcpServer::AcceptNewConnection()
     const std::string key = host_name_ + buf;
 	connected_ptr->SetName(key);
     conns_[key] = connected_ptr;
-	//TODO:scheduler_->ConfigNewConnection(connected_ptr);
     connected_ptr->InstallScheduler(scheduler_);
     connected_ptr->BindEventCallback();
     scheduler_->BindCloseCallback(boost::bind(&TcpServer::CloseOneConnection, this, _1));

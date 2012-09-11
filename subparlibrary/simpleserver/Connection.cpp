@@ -40,7 +40,6 @@ void Connection::SendBytesStream(void *buf, size_t len)
     size_t readable = outbuffer_.ReadableBytes();
     if(0 == readable)
     {
-        FILE_LOG(logINFO)<<__FILE__<<" "<<__FUNCTION__<<" "<<__LINE__;
         nwrote = ::write(sock_.GetSocket(), buf, len);
         if(nwrote >= 0)
         {
@@ -103,11 +102,6 @@ void Connection::HandleReadEvent()
     }
     else if(0 == total)
     {
-	//TODO:immediately
-	//readable event(fd) active, but the input queue of tcp protocol 
-	//stack that referenced by the socket fd is empty, so it's should be a FIN 
-	//segment coming, at this condition, we close the sockfd.i'm not very sure     
-        //FIXME
 	    HandleCloseEvent();
     }
     else

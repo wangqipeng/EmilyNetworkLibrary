@@ -97,11 +97,11 @@ int Epoller::GetActiveEvents(int timeout_ms, EventHandlerVector& active_events)
     }
     else if(events_num == 0)
     {
-        FILE_LOG(logINFO)<<"file: "<<__FILE__<<" line: "<<__LINE__<<"nothing events active";
+        FILE_LOG(logINFO)<<"nothing events active";
     }
     else
     {
-        FILE_LOG(logERROR)<<"file: "<<__FILE__<<" line: "<<__LINE__<<"epoll_wait error"<<strerror(errno);
+        FILE_LOG(logERROR)<<"epoll_wait error"<<strerror(errno);
         return -1;
     }
  

@@ -14,11 +14,11 @@ EventHandler::~EventHandler()
 
 void EventHandler::HandleEvent()
 {   
-    FILE_LOG(logINFO)<<__FILE__<<" "<<__LINE__<<" active_event_: "<<active_event_;
+    FILE_LOG(logINFO)<<" active_event_: "<<active_event_;
     
     if (active_event_& (EPOLLIN | EPOLLPRI | EPOLLRDHUP))
     {
-        FILE_LOG(logINFO)<<__FILE__<<" "<<__LINE__<<" readcallback_(): ";
+        FILE_LOG(logINFO)<<" readcallback_(): ";
         read_callback_();
     }
    
@@ -30,7 +30,7 @@ void EventHandler::HandleEvent()
     if(active_event_ & (EPOLLERR | EPOLLHUP))
     {
         err_callback_();
-        FILE_LOG(logERROR)<<__FILE__<<" "<<__LINE__<<" epoll_wait error on fd "<<GetFd()<<" "<<strerror(errno);
+        FILE_LOG(logERROR)<<" epoll_wait error on fd "<<GetFd()<<" "<<strerror(errno);
     }
     
 }

@@ -101,10 +101,6 @@ public:
     TimerMonitorPtr    timer_monitor_;
     MessageCallback    msg_callback_;
     CloseCallback      close_callback_;
-	//QueuePtr           repeat_monitor_;
-    //the handlers that is waiting for process 
-    //one scheduler corresponding to lots of handlers
-    //std::vector<EventHandlerPtr> handler_ptrs;
 };
 }
 #endif

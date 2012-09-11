@@ -135,14 +135,7 @@ void TimerMonitor::TimerfdSetTimer(int64_t delay_us/*, bool periodic*/)
  
     new_value.it_value.tv_sec  = delay_us / Time::kMicroSecondsPerSecond;
     new_value.it_value.tv_nsec = (delay_us % Time::kMicroSecondsPerSecond) * 1000;
-		/*
-        if(periodic)
-        {
-            new_value.it_interval.tv_sec = 0;//delay_ms / 1000;
-            new_value.it_interval.tv_nsec = 0;
-        }
-        */
-		//flags = 0 means we use relative time
+
     ret = timerfd_settime(timerfd_, 0, &new_value, &old_value);
     if(-1 == ret)
     {

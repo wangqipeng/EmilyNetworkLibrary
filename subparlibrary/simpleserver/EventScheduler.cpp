@@ -62,14 +62,12 @@ void EventScheduler::RegisterPeriodicTimer(const int64_t period, const TimerCall
     {
 	    if(*timer < *timer_monitor_->FirstExpired())
 	    {
-            timer_monitor_->TimerfdSetTimer(period);
-            //EnableReading(*timer_monitor_->GetHandle());
-            FILE_LOG(logINFO)<<__FILE__<<" "<<__FUNCTION__<<" "<<__LINE__;
+            timer_monitor_->TimerfdSetTimer(period);         
         }
     }
     else
     {
-        FILE_LOG(logINFO)<<__FILE__<<" "<<__LINE__<<" set timerfd and enable reading";
+        FILE_LOG(logINFO)<<" set timerfd and enable reading";
 	    timer_monitor_->TimerfdSetTimer(period);
         EnableReading(*timer_monitor_->GetHandle());
     }
@@ -91,8 +89,7 @@ void EventScheduler::EnableWriting(EventHandler& handle)
     }
     else
     {
-	    FILE_LOG(logERROR)<<"file :"<<__FILE__<<"line: "<<__LINE__
-				<<"the handle already has waiting to write";
+	    FILE_LOG(logERROR)<<"the handle already has waiting to write";
     }
 }
 
@@ -101,21 +98,19 @@ void EventScheduler::EnableReading(EventHandler& handle)
     int waiting_event = handle.GetWaitingEvent();
     if(0 == waiting_event)
     {
-        FILE_LOG(logINFO)<<"file: "<<__FILE__<<" line: "<<__LINE__
-				<<" enableread";
-	InstallEvent(handle, kReadEvent);
-	AddEvent(handle);
+        FILE_LOG(logINFO)<<" enableread";
+	    InstallEvent(handle, kReadEvent);
+	    AddEvent(handle);
     } 
     else if(waiting_event != EPOLLIN)
     {
         InstallEvent(handle, kReadEvent);
-	ModifyEvent(handle);
+	    ModifyEvent(handle);
     }
     else
     {
 	//LOG
-        FILE_LOG(logERROR)<<"file: "<<__FILE__<<"line: "<<__LINE__
-				<<"the handle already has waiting to read";
+        FILE_LOG(logERROR)<<"the handle already has waiting to read";
     }
 }
 
@@ -129,8 +124,7 @@ void EventScheduler::DisableWriting(EventHandler& handle)
     }
     else
     {
-	    FILE_LOG(logERROR)<<"file: "<<__FILE__<<"line: "<<__LINE__
-				<<"the handle already has waiting to write";
+	    FILE_LOG(logERROR)<<"the handle already has waiting to write";
     }
 }
 
@@ -144,8 +138,7 @@ void EventScheduler::DisableReading(EventHandler& handle)
     }
     else
     {
-	    FILE_LOG(logERROR)<<"file: "<<__FILE__<<"line: "<<__LINE__
-				<<"the handle already has been disabling reading";
+	    FILE_LOG(logERROR)<<"the handle already has been disabling reading";
     }
 }
 

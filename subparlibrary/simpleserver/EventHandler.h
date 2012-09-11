@@ -53,12 +53,7 @@ public:
     {
 	    err_callback_();
     }
-/*
- * void RunTimeoutCallback()
-	{
-	    timer_callback_();
-	}
-*/
+	
     void RunMessageCallback()
     {
 	    message_callback_();
@@ -108,12 +103,6 @@ public:
     {
 	    write_end_callback_ = cb;
     }
-    /*
-    void BindTimerCallback(const EventCallback& cb)
-    {
-	   timer_callback_ = cb;
-    }
-    */
 
 	bool IsWriting()
 	{

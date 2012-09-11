@@ -39,15 +39,12 @@ public:
 	Iterator iend = array_.end();
 	    
 	size_t index = 1;
-	    //const T result = array_[1];
 	const T result = *ibeg_next;
-	    //array_[1] = array_[count_];
 	*ibeg = *iend;
 	if (index * 2 > ElemNumbers())
 	{
-	    //array_[count_] = 0;
-            array_.push_back(0);
-            return result;    
+        array_.push_back(0);
+        return result;    
 	}
 
 	size_t lchild = index * 2;

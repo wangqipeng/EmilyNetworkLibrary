@@ -48,42 +48,16 @@ public:
     void AcceptNewConnection();
 
 	void CloseOneConnection(ConnectionPtr& conn_ptr);
- /*
-    void BindNewConnCallback(const NewConnCallback& cb)
-    {
-        new_conn_callback_ = cb;
-    }
-   
-    void BindConnCallback(const ConnCallback& cb)
-    {
-        conn_callback_ = cb;
-    }
-
-    void BindMesgCallback(const MesgCallback& cb)
-    {
-        mesg_callback_ = cb;
-    }
-
-    void BindWriteDoneCallback(const WriteDoneCallback& cb)
-    {
-        write_done_ = cb;
-    }
-*/	
+ 	
 private:
     const std::string                 host_name_;
     const std::string                 host_port_;
     bool                              listening_;	
     boost::scoped_ptr<Acceptor>       acceptor_;
-    //boost::scoped_ptr<EventDriver>    driver_;
     EventScheduler                    *scheduler_;
     boost::scoped_ptr<EventHandler>   evhandle_;
     ConnectionMap                     conns_;
     uint32_t                          conn_id_;
-    //boost::scoped_ptr<EventReactorThreadPool> thrd_pool_;
-    //ConnectionCallback  conn_callback_;
-    //MsgCallback         msg_callback_;
-    //WriteFinishCallback write_finish_callback_;
-    //NewConnCallback   new_conn_callback_;
 };
 } 
 #endif
