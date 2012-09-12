@@ -38,16 +38,16 @@ public:
     
     void Listening();
 
-	std::string name() const
-	{
-	    return host_name_;
-	}
+    std::string name() const
+    {
+        return host_name_;
+    }
 
     void EventDrive();
       
     void AcceptNewConnection();
 
-	void CloseOneConnection(ConnectionPtr& conn_ptr);
+    void CloseOneConnection(ConnectionPtr& conn_ptr);
  	
 private:
     const std::string                 host_name_;
