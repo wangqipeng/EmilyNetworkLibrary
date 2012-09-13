@@ -9,7 +9,8 @@ const int EventScheduler::kReadEvent  = EPOLLIN | EPOLLPRI;
 const int EventScheduler::kWriteEvent = EPOLLOUT;
 const int EventScheduler::kClearEvent = 0;
 
-EventScheduler::EventScheduler():quit_(false), timer_monitor_(new TimerMonitor(0))
+EventScheduler::EventScheduler():quit_(false), 
+                                 timer_monitor_(new TimerMonitor(0))
 {
 }
 
@@ -36,17 +37,17 @@ void EventScheduler:: RegisterOnceTimer(const int64_t delay_us, const TimerCallb
 {
     Timer *timer(new Timer(delay_us + Time::NowTimeUs(), delay_us,cb, false));
     //FIXME:logic not clear
- 	if(timer_monitor_->ActiveTimerCount() > 0)
+    if(timer_monitor_->ActiveTimerCount() > 0)
     {
-	    if(*timer < *timer_monitor_->FirstExpired())
-	    {
-	        timer_monitor_->TimerfdSetTimer(delay_us);
-	    }
+        if(*timer < *timer_monitor_->FirstExpired())
+	{
+	    timer_monitor_->TimerfdSetTimer(delay_us);
+	}
     }
     else
     {
-	    timer_monitor_->TimerfdSetTimer(delay_us);
-	    EnableReading(*timer_monitor_->GetHandle());
+	timer_monitor_->TimerfdSetTimer(delay_us);
+	EnableReading(*timer_monitor_->GetHandle());
     }	
     timer_monitor_->AddActiveTimer(timer);
 }
@@ -56,10 +57,10 @@ void EventScheduler::RegisterPeriodicTimer(const int64_t period, const TimerCall
     FILE_LOG(logINFO)<<" nowtimeus: "<<Time::GetFormatNowTime(Time::NowTimeUs());
     Timer *timer(new Timer(Time::NowTimeUs() + period, period, cb, true));
     //FIXME:logic not clear
- 	if(timer_monitor_->ActiveTimerCount() > 0)
+    if(timer_monitor_->ActiveTimerCount() > 0)
     {
-	    if(*timer < *timer_monitor_->FirstExpired())
-	    {
+	if(*timer < *timer_monitor_->FirstExpired())
+	{
             timer_monitor_->TimerfdSetTimer(period);
             FILE_LOG(logINFO);
         }
@@ -67,7 +68,7 @@ void EventScheduler::RegisterPeriodicTimer(const int64_t period, const TimerCall
     else
     {
         FILE_LOG(logINFO)<<" set timerfd and enable reading";
-	    timer_monitor_->TimerfdSetTimer(period);
+	timer_monitor_->TimerfdSetTimer(period);
         EnableReading(*timer_monitor_->GetHandle());
     }
     timer_monitor_->AddActiveTimer(timer);
@@ -78,17 +79,17 @@ void EventScheduler::EnableWriting(EventHandler& handle)
     int waiting_event = handle.GetWaitingEvent();
     if(0 == waiting_event)
     {
-	    InstallEvent(handle, kWriteEvent);
-	    AddEvent(handle);
+	InstallEvent(handle, kWriteEvent);
+	AddEvent(handle);
     }
     else if(waiting_event != EPOLLOUT)
     {
-	    InstallEvent(handle, kWriteEvent);
-	    ModifyEvent(handle);
+	InstallEvent(handle, kWriteEvent);
+	ModifyEvent(handle);
     }
     else
     {
-	    FILE_LOG(logERROR)<<" the handle already has waiting to write";
+	FILE_LOG(logERROR)<<" the handle already has waiting to write";
     }
 }
 
@@ -117,12 +118,12 @@ void EventScheduler::DisableWriting(EventHandler& handle)
     int waiting_event = handle.GetWaitingEvent();
     if(waiting_event == EPOLLOUT)
     {
-	    UninstallEvent(handle, kWriteEvent);
-	    ModifyEvent(handle);
+    	UninstallEvent(handle, kWriteEvent);
+	ModifyEvent(handle);
     }
     else
     {
-	    FILE_LOG(logERROR)<<" the handle already has waiting to write";
+	FILE_LOG(logERROR)<<" the handle already has waiting to write";
     }
 }
 
@@ -131,12 +132,12 @@ void EventScheduler::DisableReading(EventHandler& handle)
     int waiting_event = handle.GetWaitingEvent();
     if(waiting_event == EPOLLIN)
     {
-	    UninstallEvent(handle, kReadEvent);
-	    ModifyEvent(handle);
+	UninstallEvent(handle, kReadEvent);
+	ModifyEvent(handle);
     }
     else
     {
-	    FILE_LOG(logERROR)<<" the handle already has been disabling reading";
+	FILE_LOG(logERROR)<<" the handle already has been disabling reading";
     }
 }
 
