@@ -20,7 +20,7 @@ public:
 
     static int64_t  NowTimeUs();
 
-	static std::string GetFormatNowTime(int64_t abstime);
+    static std::string GetFormatNowTime(int64_t abstime);
 
     std::string GetFormatTime();
 
