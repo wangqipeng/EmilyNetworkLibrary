@@ -29,12 +29,12 @@ public:
 
     size_t ReadableBytes()
     {
-	    return  writeable_index_ - readable_index_;
+	return  writeable_index_ - readable_index_;
     }
 
     size_t WriteableBytes()
     {
-	    return buffer_.size() - writeable_index_;
+	return buffer_.size() - writeable_index_;
     }
 
     std::string DrainAsString();
@@ -46,22 +46,22 @@ public:
     //the function name is not properly
     char *GetWriteStart()
     {
-	    return Begin() + writeable_index_;
+	return Begin() + writeable_index_;
     }
 
     char *GetReadStart()
     {
     	return Begin() + readable_index_;
     }
-    //FIXME:UpdateReadablIndex(size_t n) ?
+    //FIXME:UpdateReadablIndex(size_t n)
     void UpdateReadableSize(size_t n)
     {
-	    writeable_index_ += n;
+	writeable_index_ += n;
     }
 private:
     char *Begin()
     {
-	    return &*buffer_.begin();
+	return &*buffer_.begin();
     }
 
     void ExpandCapacity(size_t len);
