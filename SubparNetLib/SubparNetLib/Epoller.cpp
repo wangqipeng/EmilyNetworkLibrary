@@ -5,8 +5,8 @@
 #include <assert.h>
 using namespace Subpar;
 
-Epoller::Epoller()
-    :epfd_(epoll_create1(EPOLL_CLOEXEC)),epoll_events_(kInitEventVectorSize)   
+Epoller::Epoller():epfd_(epoll_create1(EPOLL_CLOEXEC)),
+                   epoll_events_(kInitEventVectorSize)   
 {}
 
 Epoller::~Epoller()
@@ -68,7 +68,7 @@ int Epoller::ModifyEvent(EventHandler& ev_handle)
     res = epoll_ctl(epfd_, EPOLL_CTL_MOD, ev_handle.GetFd(), &ev);
     if(-1 == res)
     {
-	    FILE_LOG(logERROR)<<" Epoller::ModifyEvent ERROR "<<strerror(errno);
+	FILE_LOG(logERROR)<<" Epoller::ModifyEvent ERROR "<<strerror(errno);
         return -1;
     }
 
@@ -78,8 +78,8 @@ int Epoller::ModifyEvent(EventHandler& ev_handle)
 int Epoller::GetActiveEvents(int timeout_ms, EventHandlerVector& active_events)
 {
     int events_num = -1;
-	events_num =::epoll_wait(epfd_, &(*epoll_events_.begin()), static_cast<int>(epoll_events_.size()), timeout_ms);
-	if(events_num > 0)
+    events_num =::epoll_wait(epfd_, &(*epoll_events_.begin()), static_cast<int>(epoll_events_.size()), timeout_ms);
+    if(events_num > 0)
     {
         for(int i = 0; i < events_num; i++)
         {
