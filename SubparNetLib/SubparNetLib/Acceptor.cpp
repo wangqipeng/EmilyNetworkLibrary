@@ -8,13 +8,13 @@ typedef boost::shared_ptr<Connection> ConnectionPtr;
 Acceptor::Acceptor(int port):established_(false),
                              address_(port),
                              listen_sock_(TcpSocket::kInvalidHandle),
-							 conn_sock_(TcpSocket::kInvalidHandle)
+			    conn_sock_(TcpSocket::kInvalidHandle)
 {
 }
 
 Acceptor::Acceptor():established_(false),
                      address_(InetAddress::kInvalidPort),
-					 listen_sock_(TcpSocket::kInvalidHandle),
+		     listen_sock_(TcpSocket::kInvalidHandle),
                      conn_sock_(TcpSocket::kInvalidHandle)
 {
 
@@ -36,7 +36,7 @@ ConnectionPtr Acceptor::Accept()
     {
         FILE_LOG(logINFO)<<" Error: "<<strerror(errno);
         //FIXME:may be call closecallback		
-		::close(connfd);
+	:close(connfd);
     }
     return conn_ptr;
 }
@@ -57,10 +57,10 @@ void Acceptor::Listen()
     ret = listen_sock_.CreateSocket();
     assert(ret == 0);
     
-	ret = listen_sock_.SetNonBlocking(true);
-	assert(ret == 0);
+    ret = listen_sock_.SetNonBlocking(true);
+    assert(ret == 0);
     //server end should skip TIME_WAIT
-	ret = listen_sock_.SetReuseAddr(true);
+    ret = listen_sock_.SetReuseAddr(true);
     assert(ret == 0);
 
     ret = listen_sock_.Bind(address_);
