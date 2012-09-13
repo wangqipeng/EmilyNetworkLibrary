@@ -2,7 +2,9 @@
 
 using namespace Subpar;
 
-Timer::Timer():repeat_(false), period_(0),expired_time_(0)
+Timer::Timer():repeat_(false), 
+               period_(0),
+               expired_time_(0)
 {
 }
 
@@ -14,7 +16,7 @@ Timer::Timer(int64_t us, int64_t period, const TimerCallback& cb, bool repeat):r
 }
    
 Timer::Timer(const Timer& timer):repeat_(timer.repeat_),
-	                              period_(timer.period_),	
+	                          period_(timer.period_),	
                                   expired_time_(timer.expired_time_), 
                                   timer_callback_(timer.timer_callback_)
 {
