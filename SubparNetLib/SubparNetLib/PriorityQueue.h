@@ -32,73 +32,73 @@ public:
     T& Pop()
     {
         if (ElemNumbers() < 1)
-	    {
-	        FILE_LOG(logERROR)<<" Priority::Pop error: empty queue";
-	    }
+	{
+	    ILE_LOG(logERROR)<<" Priority::Pop error: empty queue";
+	}
         
-	    Iterator ibeg = array_.begin();
-	    Iterator ibeg_next = ++ibeg;
-	    Iterator iend = array_.end();
+	Iterator ibeg = array_.begin();
+	Iterator ibeg_next = ++ibeg;
+	Iterator iend = array_.end();
 	    
-	    size_t index = 1;
-	    const T result = *ibeg_next;
-	    *ibeg = *iend;
-	    if (index * 2 > ElemNumbers())
-	    {
+	size_t index = 1;
+	const T result = *ibeg_next;
+	*ibeg = *iend;
+        if(index * 2 > ElemNumbers())
+	{
             array_.push_back(0);
             return result;    
-	    }
+	}
 
-	    size_t lchild = index * 2;
-	    size_t rchild = lchild + 1;
+	size_t lchild = index * 2;
+	size_t rchild = lchild + 1;
 	    //adjust
         while (rchild <= ElemNumbers() &&
-		       array_[lchild] < array_[index] && 
-	           array_[rchild] < array_[index])
+	       array_[lchild] < array_[index] && 
+	       array_[rchild] < array_[index])
+	{
+	    if(array_[rchild] < array_[lchild])
 	    {
-	        if(array_[rchild] < array_[lchild])
-	        {
-		        //FIXME:use stl swap
-	            Swap(&array_[index], &array_[rchild]);
-		        index = rchild;
-	        } 
-	        else
-	        {
-	            Swap(&array_[index], &array_[lchild]);
-		        index = lchild;
-	        }
+		    //FIXME:use stl swap
+	        Swap(&array_[index], &array_[rchild]);
+		index = rchild;
+	    } 
+	    else
+	    {
+	        Swap(&array_[index], &array_[lchild]);
+		index = lchild;
+	    }
             lchild = index * 2;
             rchild = lchild + 1;
-	    }
-	    assert(ElemNumbers() > 0);
-		array_.pop_back();
-	    return result;
+	}
+	assert(ElemNumbers() > 0);
+        array_.pop_back();
+	return result;
     }
     
     //insert a element from the tail of the array
     void Push(const T& elem)
     {
         int index = ElemNumbers() + 1;
-	    if(0 == ElemNumbers())
-	    {
-	        array_[index] = elem;
-	        return;
-	    }
+	if(0 == ElemNumbers())
+	{
+	    array_[index] = elem;
+	    return;
+	}
 		
         array_[index] = elem;
-	    int parent = index / 2;
-	    //adjust
-	    while (elem < array_[parent] && index > 1)
+	int parent = index / 2;
+	//adjust
+	while (elem < array_[parent] && index > 1)
         {
-	        Swap(&array_[parent], &array_[index]);
-	        index = parent;
-	    }
-	    return;
+	    Swap(&array_[parent], &array_[index]);
+	    index = parent;
+	}
+	return;
     }
 
     T Top()
     {
-	    assert(ElemNumbers() > 0);
+	assert(ElemNumbers() > 0);
         return array_.at(1);
     }
 
@@ -114,11 +114,11 @@ public:
 
     void PrintQueue()
     {
-	    int i = 1;
-	    for(;i <= ElemNumbers(); ++i)
+	int i = 1;
+	for(;i <= ElemNumbers(); ++i)
      	{
-	        FILE_LOG(logINFO)<<"array["<<i<<"]"<<" is "<<array_[i];
-	    }
+	    FILE_LOG(logINFO)<<"array["<<i<<"]"<<" is "<<array_[i];
+	}
     }
 private:
     size_t ElemNumbers()
@@ -128,9 +128,9 @@ private:
 
     void Swap(T* p, T* c)
     {
-	    T t = *p;
+	T t = *p;
         *p  = *c;
-	    *c  = t;
+	*c  = t;
     }
 	
 private:
@@ -155,73 +155,73 @@ public:
     T* Pop()
     {
         if (ElemNumbers() < 1)
-	    {
-	        FILE_LOG(logERROR)<<" Priority::Pop error: empty queue";
-	    }
+	{
+	    FILE_LOG(logERROR)<<" Priority::Pop error: empty queue";
+	}
 
         Iterator ibeg       = array_.begin();
-	    Iterator first_elem = ++ibeg;
-	    Iterator iend       = array_.end();
-	    Iterator last_elem  = --iend; 
+	Iterator first_elem = ++ibeg;
+	Iterator iend       = array_.end();
+	Iterator last_elem  = --iend; 
  
-	    size_t index = 1;
-	    T* result = *first_elem;
+	size_t index = 1;
+	T* result = *first_elem;
         *first_elem = *last_elem;
-	    if (index * 2 > ElemNumbers())
-	    {
+	if (index * 2 > ElemNumbers())
+	{
             array_.pop_back();
             return result;    
-	    }
+	}
 
-	    size_t lchild = index * 2;
-	    size_t rchild = lchild + 1;
+	size_t lchild = index * 2;
+	size_t rchild = lchild + 1;
 	    //adjust
         while (rchild <= ElemNumbers() &&
-			   *array_[lchild] < *array_[index] && 
+	       *array_[lchild] < *array_[index] && 
                *array_[rchild] < *array_[index])
+	{
+	    if(*array_[rchild] < *array_[lchild])
 	    {
-	        if(*array_[rchild] < *array_[lchild])
-	        {
-	            Swap(array_[index], array_[rchild]);
-		        index = rchild;
-	        } 
-	        else
-	        {
-	            Swap(array_[index], array_[lchild]);
-		        index = lchild;
-	        }
+	         Swap(array_[index], array_[rchild]);
+		 index = rchild;
+	    } 
+	    else
+	    {
+	        Swap(array_[index], array_[lchild]);
+		index = lchild;
+	    }
             lchild = index * 2;
             rchild = lchild + 1;
-	    }
+	}
         assert(ElemNumbers() > 0);
         array_.pop_back();
-	    return result;
+	return result;
     }
     
     //insert a element from the tail of the array
     void Push(T* elem)
     {
-	    if(0 == ElemNumbers())
-	    {
+	if(0 == ElemNumbers())
+	{
             array_.push_back(elem);
-	        return;
-	    }
-	
-	    int index = ElemNumbers() + 1;
-        array_.push_back(elem);
-	    int parent;
-	    //adjust
-	    while (index > 1 && *elem < *array_[parent = index/2])
-      	{
-	        Swap(array_[parent], array_[index]);
-	        index = parent;
-	    }
 	    return;
+	}
+	
+	int index = ElemNumbers() + 1;
+        array_.push_back(elem);
+	int parent;
+	    //adjust
+	while (index > 1 && *elem < *array_[parent = index/2])
+      	{
+	    Swap(array_[parent], array_[index]);
+	    index = parent;
+	}
+	return;
     }
 
     T* Top()
     {
-	    assert(ElemNumbers() > 0);
+	assert(ElemNumbers() > 0);
         return array_.at(1);
     }
 
@@ -237,13 +237,13 @@ public:
     
     void PrintQueue()
     {
-	    assert(ElemNumbers() > 0);
-	    size_t i = 1;
+	assert(ElemNumbers() > 0);
+	size_t i = 1;
         
-	    for(;i <= ElemNumbers(); ++i)
+	for(;i <= ElemNumbers(); ++i)
      	{
-	        FILE_LOG(logINFO)<<"array["<<i<<"]"<<" is "<<(*array_[i]);
-	    }
+	    FILE_LOG(logINFO)<<"array["<<i<<"]"<<" is "<<(*array_[i]);
+	}
     }  
 private:
     size_t ElemNumbers()
@@ -253,9 +253,9 @@ private:
 
     inline void Swap(T*& p, T*& c)
     {
-	    T* t = p;
+	T* t = p;
         p = c;
-	    c = t;
+	c = t;
     }
 	
 private:
