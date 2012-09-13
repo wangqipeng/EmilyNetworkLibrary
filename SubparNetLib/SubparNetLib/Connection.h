@@ -23,15 +23,14 @@ class Connection:public boost::enable_shared_from_this<Connection>,
                  boost::noncopyable 
 {
 public:
-    typedef boost::shared_ptr<Connection> ConnectionPtr;
-	typedef boost::function<void(ConnectionPtr)> CloseCallback;
+    typedef boost::shared_ptr<Connection> ConnectionPtrtypedef boost::function<void(ConnectionPtr)> CloseCallback;
     typedef enum 
     {
         kUnconnect,
         kConnecting,
         kEstablish,
         kDisConnecting,
-	    kWriteEnd	
+	kWriteEnd	
     }ConnState;
 
     Connection(const InetAddress& peer, const InetAddress& local, int sockfd);
@@ -67,25 +66,25 @@ public:
  
     void SetName(const std::string& name)
     {
-	    name_ = name;
+	name_ = name;
     }
 
     std::string Name()
     {
-	    return name_;
+	return name_;
     }
 
     void SetConnState(ConnState s)
     {
-	    state_ = s;
+	state_ = s;
     }
 private:
     typedef boost::function<void(const ConnectionPtr&)> AppConnectionCallback;
     typedef boost::function<void(const ConnectionPtr&,  Buffer&)> MessageCallback;
     AppConnectionCallback conn_callback_;
     MessageCallback  msg_callback_;
-	CloseCallback    close_in_server_;
-	std::string      name_;
+    CloseCallback    close_in_server_;
+    std::string      name_;
     ConnState        state_;
     Buffer           outbuffer_;
     Buffer           inbuffer_;
