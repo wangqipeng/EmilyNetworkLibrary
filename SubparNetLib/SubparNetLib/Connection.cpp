@@ -6,10 +6,11 @@
 using namespace Subpar;
 
 Connection::Connection(const InetAddress& peer,const InetAddress& local, const int sockfd):state_(kConnecting),
-		                                                                                   peer_(peer),local_(local),
-																						   sock_(sockfd),
-																						   handle_(new EventHandler(sockfd, 0)),
-																						   scheduler_(new EventScheduler)
+		                                                                           peer_(peer),
+		                                                                           local_(local),
+									                   sock_(sockfd),
+								                           handle_(new EventHandler(sockfd, 0)),
+										           scheduler_(new EventScheduler)
 {
     handle_->BindReadCallback(boost::bind(&Connection::HandleReadEvent, this));
     handle_->BindWriteCallback(boost::bind(&Connection::HandleWriteEvent, this));
@@ -55,7 +56,7 @@ void Connection::SendBytesStream(void *buf, size_t len)
 				//FIXME
                 handle_->RunWriteEndCallback();//write_end_callback_();
                 FILE_LOG(logINFO)<<" write "<<nwrote<<" bytes";
-	        }
+	    }
           
         }
         else
@@ -106,7 +107,7 @@ void Connection::HandleReadEvent()
 	    //stack that referenced by the socket fd is empty, so it's should be a FIN 
 	    //segment coming, at this condition, we close the sockfd.i'm not very sure     
         //FIXME
-	    HandleCloseEvent();
+	HandleCloseEvent();
     }
     else
     {
@@ -125,22 +126,22 @@ void Connection::HandleWriteEvent()
         outbuffer_.UpdateReadableSize(n);
         if(0 == outbuffer_.ReadableBytes())
         {
-		    //because the outbuffer is empty, so
-	        //we must disable writing events to avoid busy loop
-	        scheduler_->DisableWriting(*handle_); 
+            //because the outbuffer is empty, so
+	    //we must disable writing events to avoid busy loop
+	    scheduler_->DisableWriting(*handle_); 
             if(close_in_server_)
             {
-	            close_in_server_(shared_from_this());//write_end_callback_();
+	        close_in_server_(shared_from_this());//write_end_callback_();
             }
 			
-			if(kDisConnecting == state_)
-			{
-			    ShutdownWrite();
-			}
+	    if(kDisConnecting == state_)
+	    {
+	        ShutdownWrite();
+	    }
         }
         else
         {
-		    FILE_LOG(logINFO)<<" write more data";
+            FILE_LOG(logINFO)<<" write more data";
         }
     }
     else
@@ -152,9 +153,9 @@ void Connection::HandleWriteEvent()
 void Connection::ShutdownWrite()
 {
     if(!handle_->IsWriting())//not writing)
-	{
-		sock_.ShutdownWrite();
-	}
+    {
+	sock_.ShutdownWrite();
+    }
 }
 
 void Connection::SetTcpNoDelay(bool on)
@@ -165,16 +166,16 @@ void Connection::SetTcpNoDelay(bool on)
 void Connection::HandleCloseEvent()
 {
     //1.set state to disconnect
-	SetConnState(kDisConnecting);
+    SetConnState(kDisConnecting);
 	
-	//2.disable all waiting events of the handle
-	scheduler_->DisableAllEvent(*handle_);
+    //2.disable all waiting events of the handle
+    scheduler_->DisableAllEvent(*handle_);
 	
-	//3.remove the connection from the server connection vector
-	scheduler_->RunCloseCallback(shared_from_this());
+    //3.remove the connection from the server connection vector
+    scheduler_->RunCloseCallback(shared_from_this());
 	
-	//4.remove the handle from the epoll 
-	scheduler_->DeleteEvent(*handle_);
+    //4.remove the handle from the epoll 
+    scheduler_->DeleteEvent(*handle_);
 }
 
 void Connection::HandleErrorEvent()
