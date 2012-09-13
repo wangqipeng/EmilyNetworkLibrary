@@ -15,24 +15,24 @@ class Log
 public:
     Log();
     
-	virtual ~Log();
+    virtual ~Log();
     
-	std::ostringstream& Get(TLogLevel level, const char *file, const char *func, int line);
+    std::ostringstream& Get(TLogLevel level, const char *file, const char *func, int line);
 	
-	std::ostringstream& Get(TLogLevel level);
+    std::ostringstream& Get(TLogLevel level);
 public:
     static TLogLevel& ReportingLevel();
     
-	static std::string ToString(TLogLevel level);
+    static std::string ToString(TLogLevel level);
     
-	static TLogLevel FromString(const std::string& level);
+    static TLogLevel FromString(const std::string& level);
 protected:
     std::ostringstream os;
 
 private:
     Log(const Log&);
     
-	Log& operator =(const Log&);
+    Log& operator =(const Log&);
 };
 
 template <typename T>
@@ -44,7 +44,7 @@ template <typename T>
 std::ostringstream& Log<T>::Get(TLogLevel level)
 {
     os << "- ";
-	os << NowTime();
+    os << NowTime();
     os << " " << ToString(level) << ": ";
     os << std::string(level > logDEBUG ? level - logDEBUG : 0, '\t');
   	return os;
@@ -54,11 +54,11 @@ template <typename T>
 std::ostringstream& Log<T>::Get(TLogLevel level, const char *file, const char *func, int line)
 {
     os << "- ";
-	os << NowTime();
+    os << NowTime();
     os << " " << ToString(level) << ": ";
     os << std::string(level > logDEBUG ? level - logDEBUG : 0, '\t');
-	os << file <<" "<<func<<" "<<line;
-  	return os;
+    os << file <<" "<<func<<" "<<line;
+    return os;
 }
 
 template <typename T>
@@ -78,7 +78,7 @@ TLogLevel& Log<T>::ReportingLevel()
 template <typename T>
 std::string Log<T>::ToString(TLogLevel level)
 {
-	static const char* const buffer[] = {"ERROR", "WARNING", "INFO", "DEBUG", "DEBUG1", "DEBUG2", "DEBUG3", "DEBUG4"};
+    static const char* const buffer[] = {"ERROR", "WARNING", "INFO", "DEBUG", "DEBUG1", "DEBUG2", "DEBUG3", "DEBUG4"};
     return buffer[level];
 }
 
