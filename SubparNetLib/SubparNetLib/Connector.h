@@ -26,8 +26,8 @@ public:
 
     const ConnectionPtr& Connect()
     {
-	    sock_.CreateSocket();
-	    sock_.Connect(svr_addr_);
+	sock_.CreateSocket();
+	sock_.Connect(svr_addr_);
         //ip:port(server address, connfd)
         ConnectionPtr conn = new Connection(svr_addr_, sock_.GetLocalAddress(), sock_);
         FILE_LOG(logINFO)<<__FILE__<<" "<<__LINE__<<" a new connection establish";
