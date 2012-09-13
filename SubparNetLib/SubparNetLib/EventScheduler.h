@@ -51,12 +51,12 @@ public:
  
     bool IsQuit()
     {
-	    return quit_;
+	return quit_;
     }
 
     void Quit()
     {
-	    quit_ = true;
+	quit_ = true;
     }
 
     void RunAppMsgCallback(const ConnectionPtr& conn, Buffer *buf, const Time& time)
@@ -71,12 +71,12 @@ public:
 
     void BindCloseCallback(const CloseCallback& close_cb)
     {
-	    close_callback_ = close_cb;
+	close_callback_ = close_cb;
     }
 
     void RunCloseCallback(ConnectionPtr conn_ptr)
     {
-	    close_callback_(conn_ptr);
+	close_callback_(conn_ptr);
     }
 
     void RegisterOnceTimer(const int64_t delay_us, const TimerCallback& cb);
