@@ -29,10 +29,10 @@ void TcpSocket::Close()
 void TcpSocket::ShutdownWrite()
 {
     int ret = shutdown(sockfd_, SHUT_WR);
-	if (ret < 0)
-	{
-	    FILE_LOG(logERROR)<<" shutdown error: "<<strerror(errno);
-	}
+    if (ret < 0)
+    {
+	FILE_LOG(logERROR)<<" shutdown error: "<<strerror(errno);
+    }
 }
 
 int TcpSocket::CreateSocket()
@@ -60,7 +60,7 @@ int TcpSocket::Bind(InetAddress& addr)
     if (-1 == ::bind(sockfd_, (SA*)(&addr.GetAddr()), sizeof(addr.GetAddr())))
     {
         FILE_LOG(logERROR)<<" bind address error: "<<strerror(errno);
-	    return -1;       
+	return -1;       
     }
 
     return 0;
@@ -154,17 +154,17 @@ int TcpSocket::Accept(InetAddress& addr)
 int TcpSocket::GetSocketError(int sockfd)
 {
     int ret = -1;
-	int err_code = 0;
-	socklen_t len = sizeof(err_code);
-	ret = ::getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &err_code, &len);
-	if (-1 == ret)
-	{
-	    return ret;
-	}
-	else
-	{
-	    return err_code;
-	}
+    int err_code = 0;
+    socklen_t len = sizeof(err_code);
+    ret = ::getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &err_code, &len);
+    if (-1 == ret)
+    {
+	return ret;
+    }
+    else
+    {
+	return err_code;
+    }
 }
 
 int TcpSocket::SetReuseAddr(bool on)
@@ -173,10 +173,10 @@ int TcpSocket::SetReuseAddr(bool on)
     int res = setsockopt(sockfd_, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof optval);
     if (-1 == res)
     {
-		FILE_LOG(logERROR)<<" ERROR:"<<strerror(errno);
-	    return res;
-	}	
+	FILE_LOG(logERROR)<<" ERROR:"<<strerror(errno);
 	return res;
+    }	
+    return res;
 }
 
 int TcpSocket::SetIntOpt(int opt, bool on)
