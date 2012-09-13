@@ -37,12 +37,12 @@ public:
 
     void RunWriteCallback()
     {
-	    write_callback_();
+	write_callback_();
     }
 
     void RunCloseCallback()
     {
-	    close_callback_();
+        close_callback_();
     }
 
     void RunConnectionCallback()
@@ -52,17 +52,17 @@ public:
 
     void RunErrorCallback()
     {
-	    err_callback_();
+	err_callback_();
     }
 
     void RunMessageCallback()
     {
-	    message_callback_();
+	message_callback_();
     }
 
     void RunWriteEndCallback()
     {
-	    write_end_callback_();
+	write_end_callback_();
     }
 
     void BindAcceptCallback(const AcceptCallback& cb)
@@ -97,18 +97,18 @@ public:
 
     void BindMessageCallback(const EventCallback& cb)
     {
-	    message_callback_ = cb;
+	message_callback_ = cb;
     }
 
     void BindWriteEndCallback(const EventCallback& cb)
     {
-	    write_end_callback_ = cb;
+	write_end_callback_ = cb;
     }
 
-	bool IsWriting()
-	{
-	    return active_event_ & EPOLLOUT;
-	}
+    bool IsWriting()
+    {
+	return active_event_ & EPOLLOUT;
+    }
 
     int GetFd() const 
     {
@@ -117,17 +117,17 @@ public:
     
     void SetFd(int fd)
     {
-	    fd_ = fd;
+	fd_ = fd;
     }
 
     void SetWaitingEvent(int event)
     {
-	    waiting_event_ = event;
+	waiting_event_ = event;
     }
     
     int GetWaitingEvent() 
     {
-	    return waiting_event_;
+	return waiting_event_;
     }
 
     int GetActiveEvent() const
@@ -153,7 +153,7 @@ private:
     EventCallback   err_callback_;
     EventCallback   message_callback_;
     EventCallback   write_end_callback_;
-	EventCallback   timer_callback_;
+    EventCallback   timer_callback_;
 };
 }
 #endif
