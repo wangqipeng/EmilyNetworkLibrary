@@ -14,10 +14,10 @@ class Cache : boost::noncopyable
 {
 public:
     Cache(const std::unordered_map<Key,Value>& hm,
-                       const std::list<Key>& list):hashmap_(hm),
-		                                           lruListM(list),
-									               MAX_SIZE(3000),//FIXME
-									               mutex_(){}
+          const std::list<Key>& list):hashmap_(hm),
+                                      lruListM(list),
+                                      MAX_SIZE(3000),//FIXME
+                                      mutex_(){}
 
     int Set(const Key& k, const Value& v);
    
