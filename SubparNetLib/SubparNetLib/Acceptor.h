@@ -36,13 +36,14 @@ public:
 
     int GetConnSocket() const
     {
-	    return conn_sock_.GetSocket();
+	return conn_sock_.GetSocket();
     }
 
     int GetListeningSocket() const
     {
-	    return listen_sock_.GetSocket();
-	}
+	return listen_sock_.GetSocket();
+	
+    }
     
     void Listen();
     
