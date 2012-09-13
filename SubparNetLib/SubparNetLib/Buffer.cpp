@@ -5,14 +5,14 @@
 using namespace Subpar;
 
 Buffer::Buffer():buffer_(kInitVectorSize),
-		          writeable_index_(0),
-		          readable_index_(0)
+		 writeable_index_(0),
+		 readable_index_(0)
 {
 }
 
 Buffer::Buffer(const Buffer& buf):buffer_(buf.buffer_),
-		                          writeable_index_(buf.writeable_index_),
-						          readable_index_(buf.readable_index_)
+		                  writeable_index_(buf.writeable_index_),
+			          readable_index_(buf.readable_index_)
 {
 }
 
@@ -25,7 +25,7 @@ void Buffer::WriteBuffer(char *stackbuf, size_t total, size_t writeable)
 {
     if( total < 0)
     {
-	    FILE_LOG(logERROR)<<" Error: total bytes write to buffer "<< total;
+	FILE_LOG(logERROR)<<" Error: total bytes write to buffer "<< total;
     }
     else if(total < writeable)
     {
@@ -34,9 +34,9 @@ void Buffer::WriteBuffer(char *stackbuf, size_t total, size_t writeable)
     else
     {
         //expand the buffer,and append the bytes;
-	    size_t len = total - writeable;
-	    ExpandCapacity(len);
-	    Append(stackbuf, len);
+	size_t len = total - writeable;
+	ExpandCapacity(len);
+	Append(stackbuf, len);
     }
 }
 
@@ -61,10 +61,10 @@ void Buffer::ExpandCapacity(size_t len)
     }
     else
     {
-	    std::copy(buffer_.begin() + readable_index_,
+	std::copy(buffer_.begin() + readable_index_,
         buffer_.begin() + writeable_index_,
-		buffer_.begin());
-	    writeable_index_ -= readable_index_;
+        buffer_.begin());
+	writeable_index_ -= readable_index_;
       	readable_index_ = 0;
     }	
 }
