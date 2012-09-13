@@ -29,9 +29,9 @@ public:
     ~InetAddress();
     
     bool IsValid()
-	{
-	    return valid_ == true;
-	}
+    {
+	return valid_ == true;
+    }
 
     SockAddr GetAddr() 
     {
@@ -41,14 +41,14 @@ public:
     void NumToStr(const SockAddr& addr, char *ip, size_t size);
 
     const SockAddr& GetSockAddr() const 
-	{
-	    return addr_; 
-	}
+    {
+	return addr_; 
+    }
 
     void SetSockAddr(const SockAddr& addr) 
-	{ 
-	    addr_ = addr;
-	}
+    { 
+	addr_ = addr;
+    }
 private:
     SockAddr  addr_; 
     bool      valid_;
