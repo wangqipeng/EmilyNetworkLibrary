@@ -60,7 +60,7 @@ public:
 
     void UpdateTimer()
     {
-	    int64_t new_time = Time::NowTimeUs() + period_;
+	int64_t new_time = Time::NowTimeUs() + period_;
         expired_time_.UpdateSelf(new_time);
     }
 
