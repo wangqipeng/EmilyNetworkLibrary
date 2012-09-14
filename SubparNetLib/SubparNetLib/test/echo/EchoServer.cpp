@@ -17,6 +17,5 @@ int main(int argc, char **argv)
     FILE_LOG(logINFO)<<"TcpServer server("<<argv[1]<<", "<<argv[2]<<")";
     FILE_LOG(logINFO)<<"file: "<<__FILE__<<"line: "<<__LINE__;
     server.start();
-    FILE_LOG(logINFO)<<"file: "<<__FILE__<<"line: "<<__LINE__;
-    //server.EventDrive();
+    server.EventDrive();
 }
