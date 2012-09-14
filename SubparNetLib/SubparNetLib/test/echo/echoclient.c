@@ -14,20 +14,20 @@ writen(int fd, const void* vptr, size_t n)
     ssize_t nwrote;
     const char *ptr = NULL;
 
-	ptr = vptr;
-	nleft = n;
-	while (nleft >0)
+    ptr = vptr;
+    nleft = n;
+    while (nleft >0)
+    {
+	if((nwrote = write(fd, vptr, n)) <= 0)
 	{
-	    if((nwrote = write(fd, vptr, n)) <= 0)
-		{
-		    if(nwrote<0 && errno == EINTR)
-				nwrote = 0;
-			else
-				return -1;
-		}
-		nleft -= nwrote;
-		ptr += nwrote;
-	}
+	    if(nwrote<0 && errno == EINTR)
+		nwrote = 0;
+	    else
+		return -1;
+	    }
+	    nleft -= nwrote;
+	    ptr += nwrote;
+    }
     return n;
 }
 
@@ -94,7 +94,7 @@ int main(int argc, char **argv)
     int sockfd, ret, sndbytes, readbytes;
     struct sockaddr_in serv_addr;
     
-	sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
   
     bzero(&serv_addr, sizeof(struct sockaddr_in));
     serv_addr.sin_family = AF_INET;
