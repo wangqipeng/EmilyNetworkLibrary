@@ -7,7 +7,11 @@
 #include <stdio.h>
 
 namespace Subpar
-{
+{ 
+//while one write socket operation doesn't send all bytes(the tcp out queue could be full) 
+//to the peer, a buffer at application layer is in need to store the left bytes in non-blocking
+//I/O mode, in the other condition, a bytes stream read from the Connection could not a complete
+//data packets, so some bytes which cann't be handle immediately store in the buffer.
 class Buffer
 {
 public:
