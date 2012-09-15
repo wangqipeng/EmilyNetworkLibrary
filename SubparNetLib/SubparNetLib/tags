@@ -1,0 +1,479 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACCEPTOR_H_	Acceptor.h	2;"	d
+ACache	Acceptor.h	/^namespace ACache$/;"	n
+ACache	Buffer.h	/^namespace ACache$/;"	n
+ACache	Connection.h	/^namespace ACache {$/;"	n
+ACache	Epoller.h	/^namespace ACache{$/;"	n
+ACache	EventDriver.h	/^namespace ACache $/;"	n
+ACache	EventHandler.h	/^namespace ACache{$/;"	n
+ACache	EventLoop.h	/^namespace ACache $/;"	n
+ACache	EventScheduler.h	/^namespace ACache$/;"	n
+ACache	InetAddress.h	/^namespace ACache {$/;"	n
+ACache	TcpServer.h	/^namespace ACache$/;"	n
+ACache	TcpSocket.h	/^namespace ACache {$/;"	n
+ACache::Acceptor	Acceptor.h	/^class Acceptor: public boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+ACache::Acceptor::Accept	Acceptor.h	/^    ConnectionPtr& Accept()$/;"	f	class:ACache::Acceptor	access:public	signature:()
+ACache::Acceptor::Acceptor	Acceptor.h	/^    explicit Acceptor(int port):established(false),address_(port){}$/;"	f	class:ACache::Acceptor	access:public	signature:(int port)
+ACache::Acceptor::ConnetionPtr	Acceptor.h	/^    typedef boost::shared_ptr<Connection> ConnetionPtr;$/;"	t	class:ACache::Acceptor	access:public
+ACache::Acceptor::EstablishConnection	Acceptor.h	/^    ConnectionPtr EstablishConnection(const InetAddress& peer, int connfd)$/;"	f	class:ACache::Acceptor	access:public	signature:(const InetAddress& peer, int connfd)
+ACache::Acceptor::GetSocket	Acceptor.h	/^    int GetSocket() const$/;"	f	class:ACache::Acceptor	access:public	signature:() const
+ACache::Acceptor::Listen	Acceptor.h	/^    void Listen()$/;"	f	class:ACache::Acceptor	access:public	signature:()
+ACache::Acceptor::SetConnSocket	Acceptor.h	/^    void SetConnSocket(int connfd)$/;"	f	class:ACache::Acceptor	access:public	signature:(int connfd)
+ACache::Acceptor::address_	Acceptor.h	/^    InetAddress address_;$/;"	m	class:ACache::Acceptor	access:private
+ACache::Acceptor::conn_sock_	Acceptor.h	/^    TcpSocket   conn_sock_;$/;"	m	class:ACache::Acceptor	access:private
+ACache::Acceptor::listen_sock_	Acceptor.h	/^    TcpSocket   listen_sock_;$/;"	m	class:ACache::Acceptor	access:private
+ACache::Acceptor::~Acceptor	Acceptor.h	/^    ~Acceptor();$/;"	p	class:ACache::Acceptor	access:public	signature:()
+ACache::Buffer	Buffer.h	/^class Buffer$/;"	c	namespace:ACache
+ACache::Buffer::Append	Buffer.h	/^    void Append(const char *s, size_t len)$/;"	f	class:ACache::Buffer	access:public	signature:(const char *s, size_t len)
+ACache::Buffer::Begin	Buffer.h	/^	char *Begin()$/;"	f	class:ACache::Buffer	access:private	signature:()
+ACache::Buffer::Buffer	Buffer.h	/^    Buffer():buffer_(kInitVectorSize),$/;"	f	class:ACache::Buffer	access:public	signature:()
+ACache::Buffer::Buffer	Buffer.h	/^    explicit Buffer(const Buffer& buf):buffer_(buf.buffer_),$/;"	f	class:ACache::Buffer	access:public	signature:(const Buffer& buf)
+ACache::Buffer::Expand	Buffer.h	/^	void Expand(size_t len)$/;"	f	class:ACache::Buffer	access:private	signature:(size_t len)
+ACache::Buffer::GetReadStart	Buffer.h	/^    char *GetReadStart()$/;"	f	class:ACache::Buffer	access:public	signature:()
+ACache::Buffer::GetWriteStart	Buffer.h	/^    char *GetWriteStart()$/;"	f	class:ACache::Buffer	access:public	signature:()
+ACache::Buffer::PrereadableBytes	Buffer.h	/^	size_t PrereadableBytes()$/;"	f	class:ACache::Buffer	access:public	signature:()
+ACache::Buffer::Produce	Buffer.h	/^    void Produce(char *stackbuf, size_t total, size_t writeable)$/;"	f	class:ACache::Buffer	access:public	signature:(char *stackbuf, size_t total, size_t writeable)
+ACache::Buffer::ReadableBytes	Buffer.h	/^	size_t ReadableBytes()$/;"	f	class:ACache::Buffer	access:public	signature:()
+ACache::Buffer::UpdateReadableSize	Buffer.h	/^	void UpdateReadableSize(size_t n)$/;"	f	class:ACache::Buffer	access:public	signature:(size_t n)
+ACache::Buffer::WriteableBytes	Buffer.h	/^    size_t WriteableBytes()$/;"	f	class:ACache::Buffer	access:public	signature:()
+ACache::Buffer::buffer_	Buffer.h	/^    std::vector<char> buffer_;$/;"	m	class:ACache::Buffer	access:private
+ACache::Buffer::kInitVectorSize	Buffer.h	/^	static const size_t kInitVectorSize = 4096;$/;"	m	class:ACache::Buffer	access:public
+ACache::Buffer::readable_index_	Buffer.h	/^    size_t readable_index_;	$/;"	m	class:ACache::Buffer	access:private
+ACache::Buffer::writeable_index_	Buffer.h	/^    size_t writeable_index_;$/;"	m	class:ACache::Buffer	access:private
+ACache::Buffer::~Buffer	Buffer.h	/^    ~Buffer();$/;"	p	class:ACache::Buffer	access:public	signature:()
+ACache::Connection	Connection.h	/^class Connection:public boost::noncopyable $/;"	c	namespace:ACache	inherits:boost::noncopyable
+ACache::Connection::ConnState	Connection.h	/^    }ConnState;$/;"	t	class:ACache::Connection	typeref:enum:ACache::Connection::__anon1	access:public
+ACache::Connection::Connection	Connection.h	/^    Connection(const InetAddress& peer,const InetAddress& local, const TcpSocket& sock):state_(kConnecting),$/;"	f	class:ACache::Connection	access:public	signature:(const InetAddress& peer,const InetAddress& local, const TcpSocket& sock)
+ACache::Connection::HandleCloseEvent	Connection.h	/^	void HandleCloseEvent()$/;"	f	class:ACache::Connection	access:public	signature:()
+ACache::Connection::HandleError	Connection.h	/^	void HandleError()$/;"	f	class:ACache::Connection	access:public	signature:()
+ACache::Connection::HandleReadEvent	Connection.h	/^    void HandleReadEvent()$/;"	f	class:ACache::Connection	access:public	signature:()
+ACache::Connection::HandleWriteEvent	Connection.h	/^	void HandleWriteEvent()$/;"	f	class:ACache::Connection	access:public	signature:()
+ACache::Connection::SendBytesStream	Connection.h	/^    void SendBytesStream(void *buf, size_t len)$/;"	f	class:ACache::Connection	access:public	signature:(void *buf, size_t len)
+ACache::Connection::handle_	Connection.h	/^    EventHandler    handle_;$/;"	m	class:ACache::Connection	access:private
+ACache::Connection::inbuffer_	Connection.h	/^    Buffer          inbuffer_;$/;"	m	class:ACache::Connection	access:private
+ACache::Connection::kConnecting	Connection.h	/^        kConnecting,$/;"	e	enum:ACache::Connection::__anon1
+ACache::Connection::kDisConnecting	Connection.h	/^        kDisConnecting,$/;"	e	enum:ACache::Connection::__anon1
+ACache::Connection::kEstablish	Connection.h	/^        kEstablish,$/;"	e	enum:ACache::Connection::__anon1
+ACache::Connection::kUnconnect	Connection.h	/^        kUnconnect,$/;"	e	enum:ACache::Connection::__anon1
+ACache::Connection::kWriteEnd	Connection.h	/^	    kWriteEnd	$/;"	e	enum:ACache::Connection::__anon1
+ACache::Connection::local_	Connection.h	/^    InetAddress     local_;$/;"	m	class:ACache::Connection	access:private
+ACache::Connection::outbuffer_	Connection.h	/^    Buffer          outbuffer_;$/;"	m	class:ACache::Connection	access:private
+ACache::Connection::peer_	Connection.h	/^    InetAddress     peer_;$/;"	m	class:ACache::Connection	access:private
+ACache::Connection::scheduler_	Connection.h	/^    EventScheduler  scheduler_;$/;"	m	class:ACache::Connection	access:private
+ACache::Connection::sock_	Connection.h	/^    TcpSocket       sock_;$/;"	m	class:ACache::Connection	access:private
+ACache::Connection::state_	Connection.h	/^    ConnState       state_;$/;"	m	class:ACache::Connection	access:private
+ACache::Connection::~Connection	Connection.h	/^    ~Connection();$/;"	p	class:ACache::Connection	access:public	signature:()
+ACache::ConnectionPtr	Connection.h	/^typedef boost::shared_ptr<Connection> ConnectionPtr;$/;"	t	namespace:ACache
+ACache::Epoller	Epoller.h	/^class Epoller$/;"	c	namespace:ACache
+ACache::Epoller::AddEvent	Epoller.h	/^    int AddEvent(EventHandler *evHandle);$/;"	p	class:ACache::Epoller	access:public	signature:(EventHandler *evHandle)
+ACache::Epoller::DeleteEvent	Epoller.h	/^    int DeleteEvent(EventHandler *evHandle);$/;"	p	class:ACache::Epoller	access:public	signature:(EventHandler *evHandle)
+ACache::Epoller::EpollEventsVector	Epoller.h	/^    typedef std::vector<struct epoll_event> EpollEventsVector;$/;"	t	class:ACache::Epoller	access:public
+ACache::Epoller::Epoller	Epoller.h	/^    Epoller();$/;"	p	class:ACache::Epoller	access:public	signature:()
+ACache::Epoller::EventHandlerVector	Epoller.h	/^    typedef std::vector<EventHandler*> EventHandlerVector;$/;"	t	class:ACache::Epoller	access:public
+ACache::Epoller::GetEvents	Epoller.h	/^    int GetEvents(int timeoutMs, EventHandlerVector *activeEvents);$/;"	p	class:ACache::Epoller	access:public	signature:(int timeoutMs, EventHandlerVector *activeEvents)
+ACache::Epoller::ModifyEvent	Epoller.h	/^    int ModifyEvent(EventHandler *evHandle);$/;"	p	class:ACache::Epoller	access:public	signature:(EventHandler *evHandle)
+ACache::Epoller::epfd_	Epoller.h	/^    int                 epfd_;$/;"	m	class:ACache::Epoller	access:private
+ACache::Epoller::epoll_events_	Epoller.h	/^    EpollEventsVector   epoll_events_;$/;"	m	class:ACache::Epoller	access:private
+ACache::Epoller::event_handlers_	Epoller.h	/^    EventHandlerVector  event_handlers_;$/;"	m	class:ACache::Epoller	access:private
+ACache::Epoller::kEventListSize	Epoller.h	/^    static const int    kEventListSize= 32;     $/;"	m	class:ACache::Epoller	access:private
+ACache::Epoller::~Epoller	Epoller.h	/^    ~Epoller();$/;"	p	class:ACache::Epoller	access:public	signature:()
+ACache::EventDriver	EventDriver.h	/^class EventDriver:public boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+ACache::EventDriver::Drive	EventDriver.h	/^    void Drive()$/;"	f	class:ACache::EventDriver	access:public	signature:()
+ACache::EventDriver::EventDriver	EventDriver.h	/^    EventDriver();$/;"	p	class:ACache::EventDriver	access:public	signature:()
+ACache::EventDriver::sheduler_	EventDriver.h	/^    EventScheduler sheduler_;$/;"	m	class:ACache::EventDriver	access:private
+ACache::EventDriver::~EventDriver	EventDriver.h	/^    ~EventDriver();$/;"	p	class:ACache::EventDriver	access:public	signature:()
+ACache::EventHandler	EventHandler.h	/^class EventHandler:boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+ACache::EventHandler::AcceptCallback	EventHandler.h	/^    typedef boost::function<ConnectionPtr()> AcceptCallback;$/;"	t	class:ACache::EventHandler	access:public
+ACache::EventHandler::BindAcceptCallback	EventHandler.h	/^    void BindAcceptCallback(const AcceptCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const AcceptCallback& cb)
+ACache::EventHandler::BindCloseCallback	EventHandler.h	/^    void BindCloseCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+ACache::EventHandler::BindErrorCallback	EventHandler.h	/^    void BindErrorCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+ACache::EventHandler::BindMessageCallback	EventHandler.h	/^	void BindMessageCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+ACache::EventHandler::BindReadCallback	EventHandler.h	/^    void BindReadCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+ACache::EventHandler::BindWriteCallback	EventHandler.h	/^    void BindWriteCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+ACache::EventHandler::BindWriteEndCallback	EventHandler.h	/^	void BindWriteEndCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+ACache::EventHandler::EventCallback	EventHandler.h	/^    typedef boost::function<void()> EventCallback;$/;"	t	class:ACache::EventHandler	access:public
+ACache::EventHandler::EventHandler	EventHandler.h	/^    EventHandler(int fd, int event):fd_(fd),waiting_event(event){}$/;"	f	class:ACache::EventHandler	access:public	signature:(int fd, int event)
+ACache::EventHandler::GetActiveEvents	EventHandler.h	/^	int GetActiveEvents() const$/;"	f	class:ACache::EventHandler	access:public	signature:() const
+ACache::EventHandler::GetFd	EventHandler.h	/^    int GetFd() const $/;"	f	class:ACache::EventHandler	access:public	signature:() const
+ACache::EventHandler::GetWaitingEvents	EventHandler.h	/^	int GetWaitingEvents()$/;"	f	class:ACache::EventHandler	access:public	signature:()
+ACache::EventHandler::HandleEvent	EventHandler.h	/^    void HandleEvent()$/;"	f	class:ACache::EventHandler	access:public	signature:()
+ACache::EventHandler::SetActiveEvents	EventHandler.h	/^    void SetActiveEvents(int event)$/;"	f	class:ACache::EventHandler	access:public	signature:(int event)
+ACache::EventHandler::SetWaitingEvents	EventHandler.h	/^	void SetWaitingEvents(int event)$/;"	f	class:ACache::EventHandler	access:public	signature:(int event)
+ACache::EventHandler::accept_callback_	EventHandler.h	/^    AcceptCallback  accept_callback_; $/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::active_event_	EventHandler.h	/^    int             active_event_; $/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::close_callback_	EventHandler.h	/^    EventCallback   close_callback_;$/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::err_callback_	EventHandler.h	/^    EventCallback   err_callback_;$/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::fd_	EventHandler.h	/^    const int       fd_;$/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::message_callback_	EventHandler.h	/^    EventCallback   message_callback_;$/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::read_callback_	EventHandler.h	/^    EventCallback   read_callback_;$/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::waiting_event_	EventHandler.h	/^    int             waiting_event_;$/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::write_callback_	EventHandler.h	/^    EventCallback   write_callback_;$/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::write_end_callback_	EventHandler.h	/^    EventCallback   write_end_callback_;$/;"	m	class:ACache::EventHandler	access:private
+ACache::EventHandler::~EventHandler	EventHandler.h	/^    virtual ~EventHandler();$/;"	p	class:ACache::EventHandler	access:public	signature:()
+ACache::EventLoop	EventLoop.h	/^class EventLoop:boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+ACache::EventLoop::EventLoop	EventLoop.h	/^    EventLoop();$/;"	p	class:ACache::EventLoop	access:public	signature:()
+ACache::EventLoop::Loop	EventLoop.h	/^    void Loop()$/;"	f	class:ACache::EventLoop	access:public	signature:()
+ACache::EventLoop::schedule_	EventLoop.h	/^	EventSchedule                   schedule_;$/;"	m	class:ACache::EventLoop	access:private
+ACache::EventLoop::~EventLoop	EventLoop.h	/^    ~EventLoop();$/;"	p	class:ACache::EventLoop	access:public	signature:()
+ACache::EventScheduler	EventScheduler.h	/^class EventScheduler: public boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+ACache::EventScheduler::AddEvent	EventScheduler.h	/^    void AddEvent(const EventHandler& ev_handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(const EventHandler& ev_handle)
+ACache::EventScheduler::DeleteEvent	EventScheduler.h	/^    void  DeleteEvent(const EventHandler& ev_handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(const EventHandler& ev_handle)
+ACache::EventScheduler::DisableReading	EventScheduler.h	/^	void DisableReading(EventHandle& handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandle& handle)
+ACache::EventScheduler::DisableWriting	EventScheduler.h	/^	void DisableWriting(EventHandle& handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandle& handle)
+ACache::EventScheduler::EnableReading	EventScheduler.h	/^    void EnableReading(EventHandler& handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandler& handle)
+ACache::EventScheduler::EnableWriting	EventScheduler.h	/^    void EnableWriting(EventHandler& handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandler& handle)
+ACache::EventScheduler::EventHandlerPtr	EventScheduler.h	/^    typedef boost::scoped_ptr<EventHandle> EventHandlerPtr;$/;"	t	class:ACache::EventScheduler	access:public
+ACache::EventScheduler::EventScheduler	EventScheduler.h	/^    EventScheduler();$/;"	p	class:ACache::EventScheduler	access:public	signature:()
+ACache::EventScheduler::GetActiveEvents	EventScheduler.h	/^    void GetActiveEvents(int timeout, const EventHandleVector& handle_vector)$/;"	f	class:ACache::EventScheduler	access:public	signature:(int timeout, const EventHandleVector& handle_vector)
+ACache::EventScheduler::Install_Event	EventScheduler.h	/^    void Install_Event(EventHandler& handle, int event)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandler& handle, int event)
+ACache::EventScheduler::ModifyEvent	EventScheduler.h	/^    void ModifyEvent(const EventHandler& ev_handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(const EventHandler& ev_handle)
+ACache::EventScheduler::Schedule	EventScheduler.h	/^    void Schedule()$/;"	f	class:ACache::EventScheduler	access:public	signature:()
+ACache::EventScheduler::Uninstall_Event	EventScheduler.h	/^	void Uninstall_Event(EventHandler& handle, int event)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandler& handle, int event)
+ACache::EventScheduler::kClearEvent	EventScheduler.h	/^	static const int kClearEvent;$/;"	m	class:ACache::EventScheduler	access:private
+ACache::EventScheduler::kReadEvent	EventScheduler.h	/^	static const int kReadEvent;$/;"	m	class:ACache::EventScheduler	access:private
+ACache::EventScheduler::kWriteEvent	EventScheduler.h	/^	static const int kWriteEvent;$/;"	m	class:ACache::EventScheduler	access:private
+ACache::EventScheduler::poller_	EventScheduler.h	/^    Epoller poller_;$/;"	m	class:ACache::EventScheduler	access:private
+ACache::EventScheduler::~EventScheduler	EventScheduler.h	/^    ~EventScheduler();$/;"	p	class:ACache::EventScheduler	access:public	signature:()
+ACache::InetAddress	InetAddress.h	/^class InetAddress $/;"	c	namespace:ACache
+ACache::InetAddress::GetAddr	InetAddress.h	/^    SockAddr GetAddr() $/;"	f	class:ACache::InetAddress	access:public	signature:()
+ACache::InetAddress::GetSockAddr	InetAddress.h	/^    const SockAddr& GetSockAddr() const { return addr_; }$/;"	f	class:ACache::InetAddress	access:public	signature:() const
+ACache::InetAddress::InetAddress	InetAddress.h	/^    InetAddress(const SockAddr& address):addr_(address),valid_(true){}$/;"	f	class:ACache::InetAddress	access:public	signature:(const SockAddr& address)
+ACache::InetAddress::InetAddress	InetAddress.h	/^    InetAddress(const std::string& ip, uint16_t port);$/;"	p	class:ACache::InetAddress	access:public	signature:(const std::string& ip, uint16_t port)
+ACache::InetAddress::InetAddress	InetAddress.h	/^    InetAddress(const std::string& port);$/;"	p	class:ACache::InetAddress	access:public	signature:(const std::string& port)
+ACache::InetAddress::InetAddress	InetAddress.h	/^    InetAddress(uint16_t port);$/;"	p	class:ACache::InetAddress	access:public	signature:(uint16_t port)
+ACache::InetAddress::IsValid	InetAddress.h	/^    bool IsValid();$/;"	p	class:ACache::InetAddress	access:public	signature:()
+ACache::InetAddress::NumToStr	InetAddress.h	/^    void NumToStr(const SockAddr& addr, char *ip, size_t size);$/;"	p	class:ACache::InetAddress	access:public	signature:(const SockAddr& addr, char *ip, size_t size)
+ACache::InetAddress::SA	InetAddress.h	/^    typedef struct sockaddr    SA;$/;"	t	class:ACache::InetAddress	typeref:struct:ACache::InetAddress::sockaddr	access:public
+ACache::InetAddress::SetSockAddr	InetAddress.h	/^    void SetSockAddr(const SockAddr& addr) { addr_ = addr;}$/;"	f	class:ACache::InetAddress	access:public	signature:(const SockAddr& addr)
+ACache::InetAddress::SockAddr	InetAddress.h	/^    typedef struct sockaddr_in SockAddr;$/;"	t	class:ACache::InetAddress	typeref:struct:ACache::InetAddress::sockaddr_in	access:public
+ACache::InetAddress::addr_	InetAddress.h	/^    SockAddr  addr_; $/;"	m	class:ACache::InetAddress	access:private
+ACache::InetAddress::kInvalidPort	InetAddress.h	/^    const short kInvalidPort = -1;$/;"	m	class:ACache::InetAddress	access:public
+ACache::InetAddress::valid_	InetAddress.h	/^    bool      valid_;$/;"	m	class:ACache::InetAddress	access:private
+ACache::InetAddress::~InetAddress	InetAddress.h	/^    ~InetAddress();$/;"	p	class:ACache::InetAddress	access:public	signature:()
+ACache::TcpServer	TcpServer.h	/^class TcpServer:boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+ACache::TcpServer::ConnectionMap	TcpServer.h	/^    typedef hash_map<string, ConnectionPtr> ConnectionMap;$/;"	t	class:ACache::TcpServer	access:public
+ACache::TcpServer::EventDrive	TcpServer.h	/^    void EventDrive()$/;"	f	class:ACache::TcpServer	access:public	signature:()
+ACache::TcpServer::IsListening	TcpServer.h	/^    bool IsListening()$/;"	f	class:ACache::TcpServer	access:public	signature:()
+ACache::TcpServer::ListenToThePort	TcpServer.h	/^    int ListenToThePort();$/;"	p	class:ACache::TcpServer	access:public	signature:()
+ACache::TcpServer::NewConnCallback	TcpServer.h	/^                                  const InetAddress&)> NewConnCallback;$/;"	t	class:ACache::TcpServer	access:public
+ACache::TcpServer::Start	TcpServer.h	/^    void Start();$/;"	p	class:ACache::TcpServer	access:public	signature:()
+ACache::TcpServer::TcpServer	TcpServer.h	/^    TcpServer(const std::string& name, const std::string& port)$/;"	f	class:ACache::TcpServer	access:public	signature:(const std::string& name, const std::string& port)
+ACache::TcpServer::acceptor_	TcpServer.h	/^    boost::scoped_ptr<Acceptor>       acceptor_;$/;"	m	class:ACache::TcpServer	access:private
+ACache::TcpServer::conns_	TcpServer.h	/^    ConnectionMap                     conns_;$/;"	m	class:ACache::TcpServer	access:private
+ACache::TcpServer::dirver_	TcpServer.h	/^    boost::scoped_ptr<EventDriver>    dirver_;$/;"	m	class:ACache::TcpServer	access:private
+ACache::TcpServer::evhandle_	TcpServer.h	/^    boost::scoped_ptr<EventHandler>   evhandle_;$/;"	m	class:ACache::TcpServer	access:private
+ACache::TcpServer::host_name_	TcpServer.h	/^    const std::string                 host_name_;$/;"	m	class:ACache::TcpServer	access:private
+ACache::TcpServer::host_port_	TcpServer.h	/^    const std::string                 host_port_;$/;"	m	class:ACache::TcpServer	access:private
+ACache::TcpServer::listening_	TcpServer.h	/^    bool                              listening_;	$/;"	m	class:ACache::TcpServer	access:private
+ACache::TcpServer::scheduler_	TcpServer.h	/^    boost::scoped_ptr<EventScheduler> scheduler_;$/;"	m	class:ACache::TcpServer	access:private
+ACache::TcpServer::started_	TcpServer.h	/^    bool                              started_;$/;"	m	class:ACache::TcpServer	access:private
+ACache::TcpServer::~TcpServer	TcpServer.h	/^    virtual ~TcpServer();$/;"	p	class:ACache::TcpServer	access:public	signature:()
+ACache::TcpSocket	TcpSocket.h	/^class TcpSocket:boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+ACache::TcpSocket::Accept	TcpSocket.h	/^    int Accept( InetAddress& addr);$/;"	p	class:ACache::TcpSocket	access:public	signature:( InetAddress& addr)
+ACache::TcpSocket::Bind	TcpSocket.h	/^    int Bind(InetAddress& addr);$/;"	p	class:ACache::TcpSocket	access:public	signature:(InetAddress& addr)
+ACache::TcpSocket::Close	TcpSocket.h	/^    void Close();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+ACache::TcpSocket::Connect	TcpSocket.h	/^    int Connect(InetAddress& addr);$/;"	p	class:ACache::TcpSocket	access:public	signature:(InetAddress& addr)
+ACache::TcpSocket::CreateSocket	TcpSocket.h	/^    int CreateSocket();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+ACache::TcpSocket::GetLocalAddress	TcpSocket.h	/^    InetAddress GetLocalAddress();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+ACache::TcpSocket::GetPeerAddress	TcpSocket.h	/^    InetAddress GetPeerAddress();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+ACache::TcpSocket::GetSocket	TcpSocket.h	/^    int GetSocket() const$/;"	f	class:ACache::TcpSocket	access:public	signature:() const
+ACache::TcpSocket::GetSocketError	TcpSocket.h	/^	int GetSocketError(int sockfd);$/;"	p	class:ACache::TcpSocket	access:public	signature:(int sockfd)
+ACache::TcpSocket::Listen	TcpSocket.h	/^    int Listen();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+ACache::TcpSocket::SetIntOpt	TcpSocket.h	/^    int SetIntOpt(int opt, bool on);$/;"	p	class:ACache::TcpSocket	access:public	signature:(int opt, bool on)
+ACache::TcpSocket::SetNonBlocking	TcpSocket.h	/^    int SetNonBlocking(bool on);$/;"	p	class:ACache::TcpSocket	access:public	signature:(bool on)
+ACache::TcpSocket::SetSoLinger	TcpSocket.h	/^    int SetSoLinger(bool on, int sec);$/;"	p	class:ACache::TcpSocket	access:public	signature:(bool on, int sec)
+ACache::TcpSocket::SetSockFd	TcpSocket.h	/^    void SetSockFd(int sock)$/;"	f	class:ACache::TcpSocket	access:private	signature:(int sock)
+ACache::TcpSocket::SetTcpNoDelay	TcpSocket.h	/^    int SetTcpNoDelay(bool on);$/;"	p	class:ACache::TcpSocket	access:public	signature:(bool on)
+ACache::TcpSocket::SetTimeOpt	TcpSocket.h	/^    int SetTimeOpt(int opt, int ms);$/;"	p	class:ACache::TcpSocket	access:public	signature:(int opt, int ms)
+ACache::TcpSocket::TcpSocket	TcpSocket.h	/^    TcpSocket():sockfd_(kInvalidHandle){}$/;"	f	class:ACache::TcpSocket	access:public	signature:()
+ACache::TcpSocket::TcpSocket	TcpSocket.h	/^    explicit TcpSocket(int sfd):sockfd_(sfd){}$/;"	f	class:ACache::TcpSocket	access:public	signature:(int sfd)
+ACache::TcpSocket::kInvalidHandle	TcpSocket.h	/^    static const int kInvalidHandle = -1;$/;"	m	class:ACache::TcpSocket	access:public
+ACache::TcpSocket::sockfd_	TcpSocket.h	/^    int sockfd_;$/;"	m	class:ACache::TcpSocket	access:private
+ACache::TcpSocket::~TcpSocket	TcpSocket.h	/^    ~TcpSocket();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+Accept	Acceptor.h	/^    ConnectionPtr& Accept()$/;"	f	class:ACache::Acceptor	access:public	signature:()
+Accept	TcpSocket.cpp	/^int TcpSocket::Accept(InetAddress& addr)$/;"	f	class:TcpSocket	signature:(InetAddress& addr)
+Accept	TcpSocket.h	/^    int Accept( InetAddress& addr);$/;"	p	class:ACache::TcpSocket	access:public	signature:( InetAddress& addr)
+AcceptCallback	EventHandler.h	/^    typedef boost::function<ConnectionPtr()> AcceptCallback;$/;"	t	class:ACache::EventHandler	access:public
+Acceptor	Acceptor.h	/^    explicit Acceptor(int port):established(false),address_(port){}$/;"	f	class:ACache::Acceptor	access:public	signature:(int port)
+Acceptor	Acceptor.h	/^class Acceptor: public boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+AddEvent	Epoller.cpp	/^int Epoller::AddEvent(EventHandler *ev_handle)$/;"	f	class:Epoller	signature:(EventHandler *ev_handle)
+AddEvent	Epoller.h	/^    int AddEvent(EventHandler *evHandle);$/;"	p	class:ACache::Epoller	access:public	signature:(EventHandler *evHandle)
+AddEvent	EventScheduler.cpp	/^void EventScheduler::AddEvent(EventHandler *evHandle)$/;"	f	class:EventScheduler	signature:(EventHandler *evHandle)
+AddEvent	EventScheduler.h	/^    void AddEvent(const EventHandler& ev_handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(const EventHandler& ev_handle)
+Append	Buffer.h	/^    void Append(const char *s, size_t len)$/;"	f	class:ACache::Buffer	access:public	signature:(const char *s, size_t len)
+BUFFER_H_	Buffer.h	2;"	d
+BUffer::WriteConnectionFromBuffer	Buffer.cpp	/^size_t BUffer::WriteConnectionFromBuffer(Connection *conn)$/;"	f	class:BUffer	signature:(Connection *conn)
+Begin	Buffer.h	/^	char *Begin()$/;"	f	class:ACache::Buffer	access:private	signature:()
+Bind	TcpSocket.cpp	/^int TcpSocket::Bind(InetAddress& addr)$/;"	f	class:TcpSocket	signature:(InetAddress& addr)
+Bind	TcpSocket.h	/^    int Bind(InetAddress& addr);$/;"	p	class:ACache::TcpSocket	access:public	signature:(InetAddress& addr)
+BindAcceptCallback	EventHandler.h	/^    void BindAcceptCallback(const AcceptCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const AcceptCallback& cb)
+BindCloseCallback	EventHandler.h	/^    void BindCloseCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+BindErrorCallback	EventHandler.h	/^    void BindErrorCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+BindMessageCallback	EventHandler.h	/^	void BindMessageCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+BindReadCallback	EventHandler.h	/^    void BindReadCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+BindWriteCallback	EventHandler.h	/^    void BindWriteCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+BindWriteEndCallback	EventHandler.h	/^	void BindWriteEndCallback(const EventCallback& cb)$/;"	f	class:ACache::EventHandler	access:public	signature:(const EventCallback& cb)
+Buffer	Buffer.h	/^    Buffer():buffer_(kInitVectorSize),$/;"	f	class:ACache::Buffer	access:public	signature:()
+Buffer	Buffer.h	/^    explicit Buffer(const Buffer& buf):buffer_(buf.buffer_),$/;"	f	class:ACache::Buffer	access:public	signature:(const Buffer& buf)
+Buffer	Buffer.h	/^class Buffer$/;"	c	namespace:ACache
+Buffer::ReadConnectionToBuffer	Buffer.cpp	/^size_t Buffer::ReadConnectionToBuffer(Connection *conn)$/;"	f	class:Buffer	signature:(Connection *conn)
+CC	makefile	/^CC=g++$/;"	m
+CFLAGS	makefile	/^CFLAGS = -D _DEBUG -lstdc++ -lm  -I..\/..\/include -I\/usr\/local\/include -L..\/..\/lib -L\/lib64 -L\/usr\/local\/lib  -g  -Wall$/;"	m
+CONNECTION_H_	Connection.h	2;"	d
+Close	TcpSocket.cpp	/^void TcpSocket::Close()$/;"	f	class:TcpSocket	signature:()
+Close	TcpSocket.h	/^    void Close();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+ConnState	Connection.h	/^    }ConnState;$/;"	t	class:ACache::Connection	typeref:enum:ACache::Connection::__anon1	access:public
+Connect	TcpSocket.cpp	/^int TcpSocket::Connect(InetAddress& addr)$/;"	f	class:TcpSocket	signature:(InetAddress& addr)
+Connect	TcpSocket.h	/^    int Connect(InetAddress& addr);$/;"	p	class:ACache::TcpSocket	access:public	signature:(InetAddress& addr)
+Connection	Connection.h	/^    Connection(const InetAddress& peer,const InetAddress& local, const TcpSocket& sock):state_(kConnecting),$/;"	f	class:ACache::Connection	access:public	signature:(const InetAddress& peer,const InetAddress& local, const TcpSocket& sock)
+Connection	Connection.h	/^class Connection:public boost::noncopyable $/;"	c	namespace:ACache	inherits:boost::noncopyable
+ConnectionMap	TcpServer.h	/^    typedef hash_map<string, ConnectionPtr> ConnectionMap;$/;"	t	class:ACache::TcpServer	access:public
+ConnectionPtr	Connection.h	/^typedef boost::shared_ptr<Connection> ConnectionPtr;$/;"	t	namespace:ACache
+ConnetionPtr	Acceptor.h	/^    typedef boost::shared_ptr<Connection> ConnetionPtr;$/;"	t	class:ACache::Acceptor	access:public
+CreateSocket	TcpSocket.cpp	/^int TcpSocket::CreateSocket()$/;"	f	class:TcpSocket	signature:()
+CreateSocket	TcpSocket.h	/^    int CreateSocket();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+DeleteEvent	Epoller.cpp	/^int Epoller::DeleteEvent(EventHandler *ev_handle)$/;"	f	class:Epoller	signature:(EventHandler *ev_handle)
+DeleteEvent	Epoller.h	/^    int DeleteEvent(EventHandler *evHandle);$/;"	p	class:ACache::Epoller	access:public	signature:(EventHandler *evHandle)
+DeleteEvent	EventScheduler.cpp	/^void EventScheduler::DeleteEvent(EventHandler *evHandle)$/;"	f	class:EventScheduler	signature:(EventHandler *evHandle)
+DeleteEvent	EventScheduler.h	/^    void  DeleteEvent(const EventHandler& ev_handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(const EventHandler& ev_handle)
+DisableReading	EventScheduler.h	/^	void DisableReading(EventHandle& handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandle& handle)
+DisableWriting	EventScheduler.h	/^	void DisableWriting(EventHandle& handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandle& handle)
+Drive	EventDriver.h	/^    void Drive()$/;"	f	class:ACache::EventDriver	access:public	signature:()
+EPOLLMANAGER_H_	Epoller.h	2;"	d
+EVENTDRIVER_H_	EventDriver.h	2;"	d
+EVENTHANDLER_H_	EventHandler.h	2;"	d
+EVENTREACTOR_H_	EventLoop.h	2;"	d
+EVENTSCHEDULER_H_	EventScheduler.h	2;"	d
+EnableReading	EventScheduler.h	/^    void EnableReading(EventHandler& handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandler& handle)
+EnableWriting	EventScheduler.h	/^    void EnableWriting(EventHandler& handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandler& handle)
+EpollEventsVector	Epoller.h	/^    typedef std::vector<struct epoll_event> EpollEventsVector;$/;"	t	class:ACache::Epoller	access:public
+Epoller	Epoller.h	/^    Epoller();$/;"	p	class:ACache::Epoller	access:public	signature:()
+Epoller	Epoller.h	/^class Epoller$/;"	c	namespace:ACache
+Epoller::AddEvent	Epoller.cpp	/^int Epoller::AddEvent(EventHandler *ev_handle)$/;"	f	class:Epoller	signature:(EventHandler *ev_handle)
+Epoller::DeleteEvent	Epoller.cpp	/^int Epoller::DeleteEvent(EventHandler *ev_handle)$/;"	f	class:Epoller	signature:(EventHandler *ev_handle)
+Epoller::GetEvents	Epoller.cpp	/^int Epoller::GetEvents(int timeout_ms, EventHandlerVector* active_events)$/;"	f	class:Epoller	signature:(int timeout_ms, EventHandlerVector* active_events)
+Epoller::ModifyEvent	Epoller.cpp	/^int Epoller::ModifyEvent(EventHandler *ev_handle)$/;"	f	class:Epoller	signature:(EventHandler *ev_handle)
+Epoller::~Epoller	Epoller.cpp	/^Epoller::~Epoller()$/;"	f	class:Epoller	signature:()
+EstablishConnection	Acceptor.h	/^    ConnectionPtr EstablishConnection(const InetAddress& peer, int connfd)$/;"	f	class:ACache::Acceptor	access:public	signature:(const InetAddress& peer, int connfd)
+EventCallback	EventHandler.h	/^    typedef boost::function<void()> EventCallback;$/;"	t	class:ACache::EventHandler	access:public
+EventDrive	TcpServer.h	/^    void EventDrive()$/;"	f	class:ACache::TcpServer	access:public	signature:()
+EventDriver	EventDriver.h	/^    EventDriver();$/;"	p	class:ACache::EventDriver	access:public	signature:()
+EventDriver	EventDriver.h	/^class EventDriver:public boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+EventHandler	EventHandler.h	/^    EventHandler(int fd, int event):fd_(fd),waiting_event(event){}$/;"	f	class:ACache::EventHandler	access:public	signature:(int fd, int event)
+EventHandler	EventHandler.h	/^class EventHandler:boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+EventHandlerPtr	EventScheduler.h	/^    typedef boost::scoped_ptr<EventHandle> EventHandlerPtr;$/;"	t	class:ACache::EventScheduler	access:public
+EventHandlerVector	Epoller.h	/^    typedef std::vector<EventHandler*> EventHandlerVector;$/;"	t	class:ACache::Epoller	access:public
+EventLoop	EventLoop.cpp	/^EventLoop::EventLoop()$/;"	f	class:EventLoop	signature:()
+EventLoop	EventLoop.h	/^    EventLoop();$/;"	p	class:ACache::EventLoop	access:public	signature:()
+EventLoop	EventLoop.h	/^class EventLoop:boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+EventLoop::EventLoop	EventLoop.cpp	/^EventLoop::EventLoop()$/;"	f	class:EventLoop	signature:()
+EventLoop::HandleRead	EventLoop.cpp	/^void EventLoop::HandleRead()$/;"	f	class:EventLoop	signature:()
+EventLoop::~EventLoop	EventLoop.cpp	/^EventLoop::~EventLoop()$/;"	f	class:EventLoop	signature:()
+EventReactor::Loop	EventLoop.cpp	/^int EventReactor::Loop()$/;"	f	class:EventReactor	signature:()
+EventScheduler	EventScheduler.cpp	/^EventScheduler::EventScheduler()$/;"	f	class:EventScheduler	signature:()
+EventScheduler	EventScheduler.h	/^    EventScheduler();$/;"	p	class:ACache::EventScheduler	access:public	signature:()
+EventScheduler	EventScheduler.h	/^class EventScheduler: public boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+EventScheduler::AddEvent	EventScheduler.cpp	/^void EventScheduler::AddEvent(EventHandler *evHandle)$/;"	f	class:EventScheduler	signature:(EventHandler *evHandle)
+EventScheduler::DeleteEvent	EventScheduler.cpp	/^void EventScheduler::DeleteEvent(EventHandler *evHandle)$/;"	f	class:EventScheduler	signature:(EventHandler *evHandle)
+EventScheduler::EventScheduler	EventScheduler.cpp	/^EventScheduler::EventScheduler()$/;"	f	class:EventScheduler	signature:()
+EventScheduler::ModifyEvent	EventScheduler.cpp	/^void EventScheduler::ModifyEvent(EventHandler *evHandle)$/;"	f	class:EventScheduler	signature:(EventHandler *evHandle)
+EventScheduler::kReadEvent	EventScheduler.cpp	/^const int EventScheduler::kReadEvent  = EPOLLIN | EPOLLPRI$/;"	m	class:EventScheduler	file:
+EventScheduler::~EventScheduler	EventScheduler.cpp	/^EventScheduler::~EventScheduler()$/;"	f	class:EventScheduler	signature:()
+Expand	Buffer.h	/^	void Expand(size_t len)$/;"	f	class:ACache::Buffer	access:private	signature:(size_t len)
+GetActiveEvents	EventHandler.h	/^	int GetActiveEvents() const$/;"	f	class:ACache::EventHandler	access:public	signature:() const
+GetActiveEvents	EventScheduler.h	/^    void GetActiveEvents(int timeout, const EventHandleVector& handle_vector)$/;"	f	class:ACache::EventScheduler	access:public	signature:(int timeout, const EventHandleVector& handle_vector)
+GetAddr	InetAddress.h	/^    SockAddr GetAddr() $/;"	f	class:ACache::InetAddress	access:public	signature:()
+GetEvents	Epoller.cpp	/^int Epoller::GetEvents(int timeout_ms, EventHandlerVector* active_events)$/;"	f	class:Epoller	signature:(int timeout_ms, EventHandlerVector* active_events)
+GetEvents	Epoller.h	/^    int GetEvents(int timeoutMs, EventHandlerVector *activeEvents);$/;"	p	class:ACache::Epoller	access:public	signature:(int timeoutMs, EventHandlerVector *activeEvents)
+GetFd	EventHandler.h	/^    int GetFd() const $/;"	f	class:ACache::EventHandler	access:public	signature:() const
+GetLocalAddress	TcpSocket.cpp	/^InetAddress TcpSocket::GetLocalAddress()$/;"	f	class:TcpSocket	signature:()
+GetLocalAddress	TcpSocket.h	/^    InetAddress GetLocalAddress();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+GetPeerAddress	TcpSocket.cpp	/^InetAddress TcpSocket::GetPeerAddress()$/;"	f	class:TcpSocket	signature:()
+GetPeerAddress	TcpSocket.h	/^    InetAddress GetPeerAddress();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+GetReadStart	Buffer.h	/^    char *GetReadStart()$/;"	f	class:ACache::Buffer	access:public	signature:()
+GetSockAddr	InetAddress.h	/^    const SockAddr& GetSockAddr() const { return addr_; }$/;"	f	class:ACache::InetAddress	access:public	signature:() const
+GetSocket	Acceptor.h	/^    int GetSocket() const$/;"	f	class:ACache::Acceptor	access:public	signature:() const
+GetSocket	TcpSocket.h	/^    int GetSocket() const$/;"	f	class:ACache::TcpSocket	access:public	signature:() const
+GetSocketError	TcpSocket.cpp	/^int TcpSocket::GetSocketError(int sockfd)$/;"	f	class:TcpSocket	signature:(int sockfd)
+GetSocketError	TcpSocket.h	/^	int GetSocketError(int sockfd);$/;"	p	class:ACache::TcpSocket	access:public	signature:(int sockfd)
+GetWaitingEvents	EventHandler.h	/^	int GetWaitingEvents()$/;"	f	class:ACache::EventHandler	access:public	signature:()
+GetWriteStart	Buffer.h	/^    char *GetWriteStart()$/;"	f	class:ACache::Buffer	access:public	signature:()
+HandleCloseEvent	Connection.h	/^	void HandleCloseEvent()$/;"	f	class:ACache::Connection	access:public	signature:()
+HandleError	Connection.h	/^	void HandleError()$/;"	f	class:ACache::Connection	access:public	signature:()
+HandleEvent	EventHandler.h	/^    void HandleEvent()$/;"	f	class:ACache::EventHandler	access:public	signature:()
+HandleRead	EventLoop.cpp	/^void EventLoop::HandleRead()$/;"	f	class:EventLoop	signature:()
+HandleReadEvent	Connection.h	/^    void HandleReadEvent()$/;"	f	class:ACache::Connection	access:public	signature:()
+HandleWriteEvent	Connection.h	/^	void HandleWriteEvent()$/;"	f	class:ACache::Connection	access:public	signature:()
+INETADDRESS_H_	InetAddress.h	2;"	d
+InetAddress	InetAddress.cpp	/^InetAddress::InetAddress(const std::string& ip, uint16_t port)$/;"	f	class:InetAddress	signature:(const std::string& ip, uint16_t port)
+InetAddress	InetAddress.cpp	/^InetAddress::InetAddress(const std::string& port)$/;"	f	class:InetAddress	signature:(const std::string& port)
+InetAddress	InetAddress.cpp	/^InetAddress::InetAddress(uint16_t port)$/;"	f	class:InetAddress	signature:(uint16_t port)
+InetAddress	InetAddress.h	/^    InetAddress(const SockAddr& address):addr_(address),valid_(true){}$/;"	f	class:ACache::InetAddress	access:public	signature:(const SockAddr& address)
+InetAddress	InetAddress.h	/^    InetAddress(const std::string& ip, uint16_t port);$/;"	p	class:ACache::InetAddress	access:public	signature:(const std::string& ip, uint16_t port)
+InetAddress	InetAddress.h	/^    InetAddress(const std::string& port);$/;"	p	class:ACache::InetAddress	access:public	signature:(const std::string& port)
+InetAddress	InetAddress.h	/^    InetAddress(uint16_t port);$/;"	p	class:ACache::InetAddress	access:public	signature:(uint16_t port)
+InetAddress	InetAddress.h	/^class InetAddress $/;"	c	namespace:ACache
+InetAddress::InetAddress	InetAddress.cpp	/^InetAddress::InetAddress(const std::string& ip, uint16_t port)$/;"	f	class:InetAddress	signature:(const std::string& ip, uint16_t port)
+InetAddress::InetAddress	InetAddress.cpp	/^InetAddress::InetAddress(const std::string& port)$/;"	f	class:InetAddress	signature:(const std::string& port)
+InetAddress::InetAddress	InetAddress.cpp	/^InetAddress::InetAddress(uint16_t port)$/;"	f	class:InetAddress	signature:(uint16_t port)
+InetAddress::IsValid	InetAddress.cpp	/^bool InetAddress::IsValid()$/;"	f	class:InetAddress	signature:()
+InetAddress::NumToStr	InetAddress.cpp	/^void InetAddress::NumToStr(const SockAddr& addr, char* buf, size_t size)$/;"	f	class:InetAddress	signature:(const SockAddr& addr, char* buf, size_t size)
+InetAddress::~InetAddress	InetAddress.cpp	/^InetAddress::~InetAddress()$/;"	f	class:InetAddress	signature:()
+Install_Event	EventScheduler.h	/^    void Install_Event(EventHandler& handle, int event)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandler& handle, int event)
+IsListening	TcpServer.h	/^    bool IsListening()$/;"	f	class:ACache::TcpServer	access:public	signature:()
+IsValid	InetAddress.cpp	/^bool InetAddress::IsValid()$/;"	f	class:InetAddress	signature:()
+IsValid	InetAddress.h	/^    bool IsValid();$/;"	p	class:ACache::InetAddress	access:public	signature:()
+Listen	Acceptor.h	/^    void Listen()$/;"	f	class:ACache::Acceptor	access:public	signature:()
+Listen	TcpSocket.cpp	/^int TcpSocket::Listen()$/;"	f	class:TcpSocket	signature:()
+Listen	TcpSocket.h	/^    int Listen();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
+ListenToThePort	TcpServer.cpp	/^void TcpServer::ListenToThePort()$/;"	f	class:TcpServer	signature:()
+ListenToThePort	TcpServer.h	/^    int ListenToThePort();$/;"	p	class:ACache::TcpServer	access:public	signature:()
+Loop	EventLoop.cpp	/^int EventReactor::Loop()$/;"	f	class:EventReactor	signature:()
+Loop	EventLoop.h	/^    void Loop()$/;"	f	class:ACache::EventLoop	access:public	signature:()
+ModifyEvent	Epoller.cpp	/^int Epoller::ModifyEvent(EventHandler *ev_handle)$/;"	f	class:Epoller	signature:(EventHandler *ev_handle)
+ModifyEvent	Epoller.h	/^    int ModifyEvent(EventHandler *evHandle);$/;"	p	class:ACache::Epoller	access:public	signature:(EventHandler *evHandle)
+ModifyEvent	EventScheduler.cpp	/^void EventScheduler::ModifyEvent(EventHandler *evHandle)$/;"	f	class:EventScheduler	signature:(EventHandler *evHandle)
+ModifyEvent	EventScheduler.h	/^    void ModifyEvent(const EventHandler& ev_handle)$/;"	f	class:ACache::EventScheduler	access:public	signature:(const EventHandler& ev_handle)
+NewConnCallback	TcpServer.h	/^                                  const InetAddress&)> NewConnCallback;$/;"	t	class:ACache::TcpServer	access:public
+NumToStr	InetAddress.cpp	/^void InetAddress::NumToStr(const SockAddr& addr, char* buf, size_t size)$/;"	f	class:InetAddress	signature:(const SockAddr& addr, char* buf, size_t size)
+NumToStr	InetAddress.h	/^    void NumToStr(const SockAddr& addr, char *ip, size_t size);$/;"	p	class:ACache::InetAddress	access:public	signature:(const SockAddr& addr, char *ip, size_t size)
+OBJ	makefile	/^OBJ=$(addprefix .\/, $(addsuffix .o, $(basename $(SRC))))$/;"	m
+PrereadableBytes	Buffer.h	/^	size_t PrereadableBytes()$/;"	f	class:ACache::Buffer	access:public	signature:()
+Produce	Buffer.h	/^    void Produce(char *stackbuf, size_t total, size_t writeable)$/;"	f	class:ACache::Buffer	access:public	signature:(char *stackbuf, size_t total, size_t writeable)
+ReadConnectionToBuffer	Buffer.cpp	/^size_t Buffer::ReadConnectionToBuffer(Connection *conn)$/;"	f	class:Buffer	signature:(Connection *conn)
+ReadableBytes	Buffer.h	/^	size_t ReadableBytes()$/;"	f	class:ACache::Buffer	access:public	signature:()
+SA	InetAddress.h	/^    typedef struct sockaddr    SA;$/;"	t	class:ACache::InetAddress	typeref:struct:ACache::InetAddress::sockaddr	access:public
+SA	TcpSocket.cpp	/^typedef struct sockaddr SA;$/;"	t	typeref:struct:sockaddr	file:
+SRC	makefile	/^SRC=$(wildcard *.cpp)$/;"	m
+Schedule	EventScheduler.h	/^    void Schedule()$/;"	f	class:ACache::EventScheduler	access:public	signature:()
+SendBytesStream	Connection.h	/^    void SendBytesStream(void *buf, size_t len)$/;"	f	class:ACache::Connection	access:public	signature:(void *buf, size_t len)
+SetActiveEvents	EventHandler.h	/^    void SetActiveEvents(int event)$/;"	f	class:ACache::EventHandler	access:public	signature:(int event)
+SetConnSocket	Acceptor.h	/^    void SetConnSocket(int connfd)$/;"	f	class:ACache::Acceptor	access:public	signature:(int connfd)
+SetIntOpt	TcpSocket.cpp	/^int TcpSocket::SetIntOpt(int opt, bool on)$/;"	f	class:TcpSocket	signature:(int opt, bool on)
+SetIntOpt	TcpSocket.h	/^    int SetIntOpt(int opt, bool on);$/;"	p	class:ACache::TcpSocket	access:public	signature:(int opt, bool on)
+SetNonBlocking	TcpSocket.cpp	/^int TcpSocket::SetNonBlocking(bool on)$/;"	f	class:TcpSocket	signature:(bool on)
+SetNonBlocking	TcpSocket.h	/^    int SetNonBlocking(bool on);$/;"	p	class:ACache::TcpSocket	access:public	signature:(bool on)
+SetSoLinger	TcpSocket.cpp	/^int TcpSocket::SetSoLinger(bool on, int sec)$/;"	f	class:TcpSocket	signature:(bool on, int sec)
+SetSoLinger	TcpSocket.h	/^    int SetSoLinger(bool on, int sec);$/;"	p	class:ACache::TcpSocket	access:public	signature:(bool on, int sec)
+SetSockAddr	InetAddress.h	/^    void SetSockAddr(const SockAddr& addr) { addr_ = addr;}$/;"	f	class:ACache::InetAddress	access:public	signature:(const SockAddr& addr)
+SetSockFd	TcpSocket.h	/^    void SetSockFd(int sock)$/;"	f	class:ACache::TcpSocket	access:private	signature:(int sock)
+SetTcpNoDelay	TcpSocket.cpp	/^int TcpSocket::SetTcpNoDelay(bool on)$/;"	f	class:TcpSocket	signature:(bool on)
+SetTcpNoDelay	TcpSocket.h	/^    int SetTcpNoDelay(bool on);$/;"	p	class:ACache::TcpSocket	access:public	signature:(bool on)
+SetTimeOpt	TcpSocket.cpp	/^int TcpSocket::SetTimeOpt(int opt, int ms)$/;"	f	class:TcpSocket	signature:(int opt, int ms)
+SetTimeOpt	TcpSocket.h	/^    int SetTimeOpt(int opt, int ms);$/;"	p	class:ACache::TcpSocket	access:public	signature:(int opt, int ms)
+SetWaitingEvents	EventHandler.h	/^	void SetWaitingEvents(int event)$/;"	f	class:ACache::EventHandler	access:public	signature:(int event)
+SockAddr	InetAddress.h	/^    typedef struct sockaddr_in SockAddr;$/;"	t	class:ACache::InetAddress	typeref:struct:ACache::InetAddress::sockaddr_in	access:public
+Start	TcpServer.h	/^    void Start();$/;"	p	class:ACache::TcpServer	access:public	signature:()
+TARGET	makefile	/^TARGET=init_test$/;"	m
+TCPSERVER_H_	TcpServer.h	2;"	d
+TCPSOCKET_H_	TcpSocket.h	2;"	d
+TcpServer	TcpServer.h	/^    TcpServer(const std::string& name, const std::string& port)$/;"	f	class:ACache::TcpServer	access:public	signature:(const std::string& name, const std::string& port)
+TcpServer	TcpServer.h	/^class TcpServer:boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+TcpServer::ListenToThePort	TcpServer.cpp	/^void TcpServer::ListenToThePort()$/;"	f	class:TcpServer	signature:()
+TcpServer::~TcpServer	TcpServer.cpp	/^TcpServer::~TcpServer()$/;"	f	class:TcpServer	signature:()
+TcpSocket	TcpSocket.h	/^    TcpSocket():sockfd_(kInvalidHandle){}$/;"	f	class:ACache::TcpSocket	access:public	signature:()
+TcpSocket	TcpSocket.h	/^    explicit TcpSocket(int sfd):sockfd_(sfd){}$/;"	f	class:ACache::TcpSocket	access:public	signature:(int sfd)
+TcpSocket	TcpSocket.h	/^class TcpSocket:boost::noncopyable$/;"	c	namespace:ACache	inherits:boost::noncopyable
+TcpSocket::Accept	TcpSocket.cpp	/^int TcpSocket::Accept(InetAddress& addr)$/;"	f	class:TcpSocket	signature:(InetAddress& addr)
+TcpSocket::Bind	TcpSocket.cpp	/^int TcpSocket::Bind(InetAddress& addr)$/;"	f	class:TcpSocket	signature:(InetAddress& addr)
+TcpSocket::Close	TcpSocket.cpp	/^void TcpSocket::Close()$/;"	f	class:TcpSocket	signature:()
+TcpSocket::Connect	TcpSocket.cpp	/^int TcpSocket::Connect(InetAddress& addr)$/;"	f	class:TcpSocket	signature:(InetAddress& addr)
+TcpSocket::CreateSocket	TcpSocket.cpp	/^int TcpSocket::CreateSocket()$/;"	f	class:TcpSocket	signature:()
+TcpSocket::GetLocalAddress	TcpSocket.cpp	/^InetAddress TcpSocket::GetLocalAddress()$/;"	f	class:TcpSocket	signature:()
+TcpSocket::GetPeerAddress	TcpSocket.cpp	/^InetAddress TcpSocket::GetPeerAddress()$/;"	f	class:TcpSocket	signature:()
+TcpSocket::GetSocketError	TcpSocket.cpp	/^int TcpSocket::GetSocketError(int sockfd)$/;"	f	class:TcpSocket	signature:(int sockfd)
+TcpSocket::Listen	TcpSocket.cpp	/^int TcpSocket::Listen()$/;"	f	class:TcpSocket	signature:()
+TcpSocket::SetIntOpt	TcpSocket.cpp	/^int TcpSocket::SetIntOpt(int opt, bool on)$/;"	f	class:TcpSocket	signature:(int opt, bool on)
+TcpSocket::SetNonBlocking	TcpSocket.cpp	/^int TcpSocket::SetNonBlocking(bool on)$/;"	f	class:TcpSocket	signature:(bool on)
+TcpSocket::SetSoLinger	TcpSocket.cpp	/^int TcpSocket::SetSoLinger(bool on, int sec)$/;"	f	class:TcpSocket	signature:(bool on, int sec)
+TcpSocket::SetTcpNoDelay	TcpSocket.cpp	/^int TcpSocket::SetTcpNoDelay(bool on)$/;"	f	class:TcpSocket	signature:(bool on)
+TcpSocket::SetTimeOpt	TcpSocket.cpp	/^int TcpSocket::SetTimeOpt(int opt, int ms)$/;"	f	class:TcpSocket	signature:(int opt, int ms)
+TcpSocket::~TcpSocket	TcpSocket.cpp	/^TcpSocket::~TcpSocket()$/;"	f	class:TcpSocket	signature:()
+Uninstall_Event	EventScheduler.h	/^	void Uninstall_Event(EventHandler& handle, int event)$/;"	f	class:ACache::EventScheduler	access:public	signature:(EventHandler& handle, int event)
+UpdateReadableSize	Buffer.h	/^	void UpdateReadableSize(size_t n)$/;"	f	class:ACache::Buffer	access:public	signature:(size_t n)
+WriteConnectionFromBuffer	Buffer.cpp	/^size_t BUffer::WriteConnectionFromBuffer(Connection *conn)$/;"	f	class:BUffer	signature:(Connection *conn)
+WriteableBytes	Buffer.h	/^    size_t WriteableBytes()$/;"	f	class:ACache::Buffer	access:public	signature:()
+__anon2::createEventFd	EventLoop.cpp	/^    int createEventFd()$/;"	f	namespace:__anon2	signature:()
+__anon2::kEpollTimeMs	EventLoop.cpp	/^    const int kEpollTimeMs = 10000;$/;"	m	namespace:__anon2	file:
+__anon2::loop_in_this_thread	EventLoop.cpp	/^    __thread EventReactor* loop_in_this_thread = 0;$/;"	m	namespace:__anon2	file:
+accept_callback_	EventHandler.h	/^    AcceptCallback  accept_callback_; $/;"	m	class:ACache::EventHandler	access:private
+acceptor_	TcpServer.h	/^    boost::scoped_ptr<Acceptor>       acceptor_;$/;"	m	class:ACache::TcpServer	access:private
+active_event_	EventHandler.h	/^    int             active_event_; $/;"	m	class:ACache::EventHandler	access:private
+addr_	InetAddress.h	/^    SockAddr  addr_; $/;"	m	class:ACache::InetAddress	access:private
+address_	Acceptor.h	/^    InetAddress address_;$/;"	m	class:ACache::Acceptor	access:private
+buffer_	Buffer.h	/^    std::vector<char> buffer_;$/;"	m	class:ACache::Buffer	access:private
+close_callback_	EventHandler.h	/^    EventCallback   close_callback_;$/;"	m	class:ACache::EventHandler	access:private
+conn_sock_	Acceptor.h	/^    TcpSocket   conn_sock_;$/;"	m	class:ACache::Acceptor	access:private
+conns_	TcpServer.h	/^    ConnectionMap                     conns_;$/;"	m	class:ACache::TcpServer	access:private
+createEventFd	EventLoop.cpp	/^    int createEventFd()$/;"	f	namespace:__anon2	signature:()
+dirver_	TcpServer.h	/^    boost::scoped_ptr<EventDriver>    dirver_;$/;"	m	class:ACache::TcpServer	access:private
+epfd_	Epoller.h	/^    int                 epfd_;$/;"	m	class:ACache::Epoller	access:private
+epoll_events_	Epoller.h	/^    EpollEventsVector   epoll_events_;$/;"	m	class:ACache::Epoller	access:private
+err_callback_	EventHandler.h	/^    EventCallback   err_callback_;$/;"	m	class:ACache::EventHandler	access:private
+event_handlers_	Epoller.h	/^    EventHandlerVector  event_handlers_;$/;"	m	class:ACache::Epoller	access:private
+evhandle_	TcpServer.h	/^    boost::scoped_ptr<EventHandler>   evhandle_;$/;"	m	class:ACache::TcpServer	access:private
+fd_	EventHandler.h	/^    const int       fd_;$/;"	m	class:ACache::EventHandler	access:private
+handle_	Connection.h	/^    EventHandler    handle_;$/;"	m	class:ACache::Connection	access:private
+host_name_	TcpServer.h	/^    const std::string                 host_name_;$/;"	m	class:ACache::TcpServer	access:private
+host_port_	TcpServer.h	/^    const std::string                 host_port_;$/;"	m	class:ACache::TcpServer	access:private
+inbuffer_	Connection.h	/^    Buffer          inbuffer_;$/;"	m	class:ACache::Connection	access:private
+kClearEvent	EventScheduler.h	/^	static const int kClearEvent;$/;"	m	class:ACache::EventScheduler	access:private
+kConnecting	Connection.h	/^        kConnecting,$/;"	e	enum:ACache::Connection::__anon1
+kDisConnecting	Connection.h	/^        kDisConnecting,$/;"	e	enum:ACache::Connection::__anon1
+kEpollTimeMs	EventLoop.cpp	/^    const int kEpollTimeMs = 10000;$/;"	m	namespace:__anon2	file:
+kEstablish	Connection.h	/^        kEstablish,$/;"	e	enum:ACache::Connection::__anon1
+kEventListSize	Epoller.h	/^    static const int    kEventListSize= 32;     $/;"	m	class:ACache::Epoller	access:private
+kInitVectorSize	Buffer.h	/^	static const size_t kInitVectorSize = 4096;$/;"	m	class:ACache::Buffer	access:public
+kInvalidHandle	TcpSocket.h	/^    static const int kInvalidHandle = -1;$/;"	m	class:ACache::TcpSocket	access:public
+kInvalidPort	InetAddress.h	/^    const short kInvalidPort = -1;$/;"	m	class:ACache::InetAddress	access:public
+kReadEvent	EventScheduler.cpp	/^const int EventScheduler::kReadEvent  = EPOLLIN | EPOLLPRI$/;"	m	class:EventScheduler	file:
+kReadEvent	EventScheduler.h	/^	static const int kReadEvent;$/;"	m	class:ACache::EventScheduler	access:private
+kUnconnect	Connection.h	/^        kUnconnect,$/;"	e	enum:ACache::Connection::__anon1
+kWriteEnd	Connection.h	/^	    kWriteEnd	$/;"	e	enum:ACache::Connection::__anon1
+kWriteEvent	EventScheduler.h	/^	static const int kWriteEvent;$/;"	m	class:ACache::EventScheduler	access:private
+listen_sock_	Acceptor.h	/^    TcpSocket   listen_sock_;$/;"	m	class:ACache::Acceptor	access:private
+listening_	TcpServer.h	/^    bool                              listening_;	$/;"	m	class:ACache::TcpServer	access:private
+local_	Connection.h	/^    InetAddress     local_;$/;"	m	class:ACache::Connection	access:private
+loop_in_this_thread	EventLoop.cpp	/^    __thread EventReactor* loop_in_this_thread = 0;$/;"	m	namespace:__anon2	file:
+main	init_test.cpp	/^int main(int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
+message_callback_	EventHandler.h	/^    EventCallback   message_callback_;$/;"	m	class:ACache::EventHandler	access:private
+outbuffer_	Connection.h	/^    Buffer          outbuffer_;$/;"	m	class:ACache::Connection	access:private
+peer_	Connection.h	/^    InetAddress     peer_;$/;"	m	class:ACache::Connection	access:private
+poller_	EventScheduler.h	/^    Epoller poller_;$/;"	m	class:ACache::EventScheduler	access:private
+read_callback_	EventHandler.h	/^    EventCallback   read_callback_;$/;"	m	class:ACache::EventHandler	access:private
+readable_index_	Buffer.h	/^    size_t readable_index_;	$/;"	m	class:ACache::Buffer	access:private
+schedule_	EventLoop.h	/^	EventSchedule                   schedule_;$/;"	m	class:ACache::EventLoop	access:private
+scheduler_	Connection.h	/^    EventScheduler  scheduler_;$/;"	m	class:ACache::Connection	access:private
+scheduler_	TcpServer.h	/^    boost::scoped_ptr<EventScheduler> scheduler_;$/;"	m	class:ACache::TcpServer	access:private
+sheduler_	EventDriver.h	/^    EventScheduler sheduler_;$/;"	m	class:ACache::EventDriver	access:private
+sock_	Connection.h	/^    TcpSocket       sock_;$/;"	m	class:ACache::Connection	access:private
+sockfd_	TcpSocket.h	/^    int sockfd_;$/;"	m	class:ACache::TcpSocket	access:private
+started_	TcpServer.h	/^    bool                              started_;$/;"	m	class:ACache::TcpServer	access:private
+state_	Connection.h	/^    ConnState       state_;$/;"	m	class:ACache::Connection	access:private
+valid_	InetAddress.h	/^    bool      valid_;$/;"	m	class:ACache::InetAddress	access:private
+waiting_event_	EventHandler.h	/^    int             waiting_event_;$/;"	m	class:ACache::EventHandler	access:private
+write_callback_	EventHandler.h	/^    EventCallback   write_callback_;$/;"	m	class:ACache::EventHandler	access:private
+write_end_callback_	EventHandler.h	/^    EventCallback   write_end_callback_;$/;"	m	class:ACache::EventHandler	access:private
+writeable_index_	Buffer.h	/^    size_t writeable_index_;$/;"	m	class:ACache::Buffer	access:private
+~Acceptor	Acceptor.h	/^    ~Acceptor();$/;"	p	class:ACache::Acceptor	access:public	signature:()
+~Buffer	Buffer.h	/^    ~Buffer();$/;"	p	class:ACache::Buffer	access:public	signature:()
+~Connection	Connection.h	/^    ~Connection();$/;"	p	class:ACache::Connection	access:public	signature:()
+~Epoller	Epoller.cpp	/^Epoller::~Epoller()$/;"	f	class:Epoller	signature:()
+~Epoller	Epoller.h	/^    ~Epoller();$/;"	p	class:ACache::Epoller	access:public	signature:()
+~EventDriver	EventDriver.h	/^    ~EventDriver();$/;"	p	class:ACache::EventDriver	access:public	signature:()
+~EventHandler	EventHandler.h	/^    virtual ~EventHandler();$/;"	p	class:ACache::EventHandler	access:public	signature:()
+~EventLoop	EventLoop.cpp	/^EventLoop::~EventLoop()$/;"	f	class:EventLoop	signature:()
+~EventLoop	EventLoop.h	/^    ~EventLoop();$/;"	p	class:ACache::EventLoop	access:public	signature:()
+~EventScheduler	EventScheduler.cpp	/^EventScheduler::~EventScheduler()$/;"	f	class:EventScheduler	signature:()
+~EventScheduler	EventScheduler.h	/^    ~EventScheduler();$/;"	p	class:ACache::EventScheduler	access:public	signature:()
+~InetAddress	InetAddress.cpp	/^InetAddress::~InetAddress()$/;"	f	class:InetAddress	signature:()
+~InetAddress	InetAddress.h	/^    ~InetAddress();$/;"	p	class:ACache::InetAddress	access:public	signature:()
+~TcpServer	TcpServer.cpp	/^TcpServer::~TcpServer()$/;"	f	class:TcpServer	signature:()
+~TcpServer	TcpServer.h	/^    virtual ~TcpServer();$/;"	p	class:ACache::TcpServer	access:public	signature:()
+~TcpSocket	TcpSocket.cpp	/^TcpSocket::~TcpSocket()$/;"	f	class:TcpSocket	signature:()
+~TcpSocket	TcpSocket.h	/^    ~TcpSocket();$/;"	p	class:ACache::TcpSocket	access:public	signature:()
