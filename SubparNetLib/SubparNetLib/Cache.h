@@ -9,6 +9,8 @@
 using namespace std;
 namespace ACache
 {
+// a simple cache
+//TODO
 template <typename Key, typename Value>
 class Cache : boost::noncopyable
 {
