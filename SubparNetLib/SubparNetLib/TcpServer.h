@@ -38,16 +38,19 @@ public:
     
     void Listening();
 
-	std::string name() const
-	{
-	    return host_name_;
-	}
+    std::string name() const
+    {
+	return host_name_;
+    }
 
     void EventDrive();
-      
+    
+    //a callback function,  bind with the listening event handler by the scheduler.
+    //when a colient connect the server, this function will be invoke to 
+    //establish a connection
     void AcceptNewConnection();
 
-	void CloseOneConnection(ConnectionPtr& conn_ptr);
+    void CloseOneConnection(ConnectionPtr& conn_ptr);
  	
 private:
     const std::string                 host_name_;
