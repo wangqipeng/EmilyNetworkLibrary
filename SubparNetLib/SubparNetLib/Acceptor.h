@@ -11,6 +11,8 @@
 namespace Subpar
 {
 class Connection;
+//a component of the server end used to initialize the listening socket and establish a connection
+//when the client connect to it
 class Acceptor: boost::noncopyable
 {
 public:
