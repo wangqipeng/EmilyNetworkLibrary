@@ -7,6 +7,7 @@
 #include "EventHandler.h"
 namespace Subpar
 {
+//Encapsulate the epoll in linux
 class Epoller
 {
 public:
