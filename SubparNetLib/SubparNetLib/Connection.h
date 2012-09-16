@@ -19,8 +19,9 @@ namespace Subpar
 {
 class EventScheduler;
 class EventHandler;
-class Connection:public boost::enable_shared_from_this<Connection>,
-                 boost::noncopyable 
+//Encapsulate a tcp connection. the butes read/write through this connection
+class Connection: public boost::enable_shared_from_this<Connection>,
+                         boost::noncopyable 
 {
 public:
     typedef boost::shared_ptr<Connection> ConnectionPtrtypedef boost::function<void(ConnectionPtr)> CloseCallback;
