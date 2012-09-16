@@ -10,6 +10,8 @@
 namespace Subpar
 {
 class EventHandler;
+//a simple timer,when the timer is expired, the callback will be invoked
+//the callback will be set by the EventScheduler at the initial stage
 class Timer:public boost::less_than_comparable<Timer>
 {
 public:
