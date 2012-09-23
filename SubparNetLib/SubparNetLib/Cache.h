@@ -10,7 +10,7 @@ using namespace std;
 namespace ACache
 {
 // a simple cache
-//TODO
+//TODO：add expired time
 template <typename Key, typename Value>
 class Cache : boost::noncopyable
 {
